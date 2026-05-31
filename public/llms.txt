@@ -1,0 +1,21 @@
+# Garagol
+
+> Garagol is a full-stack product & IT-consulting studio — senior engineers and designers who design, build, and secure web, mobile, and cloud software, from concept to scaled product. We build and run our own SaaS platform, IGNIFY. From startups to enterprise.
+
+## Pages
+- [Home](https://garagol.com/): Overview — services, process, selected work, and how we work.
+- [Services](https://garagol.com/services): Build & Launch (web/mobile/cloud, UI/UX), Optimize & Secure (DevOps, performance, cybersecurity), Data & Insights (data science, analytics, ML), Strategy & Support (IT consulting, branding, digital strategy).
+- [Work](https://garagol.com/work): Selected products across fintech, health, logistics, and consumer.
+- [IGNIFY case study](https://garagol.com/work/ignify): A full-stack SaaS platform built from zero — native mobile apps, real-time messaging & calling, a secure cloud backend, payments, and an admin console.
+- [About](https://garagol.com/about): Senior team, values, and engineering expertise.
+- [Pricing](https://garagol.com/pricing): Launch, Scale, Secure & Optimize, and Enterprise engagements — price on request, no hidden fees.
+- [Contact](https://garagol.com/contact): Start a project — a 5-question estimate or a quick inquiry. We reply within ~2 hours during business hours.
+
+## Commitments
+- Fast delivery: a first working draft within a week of kick-off.
+- Secure by default: every line reviewed to reduce vulnerabilities.
+- Transparent pricing and full IP ownership — you own everything we build.
+
+## Contact
+- Email: hello@garagol.com
+- LinkedIn: https://www.linkedin.com/company/garagol/

@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Check, ArrowRight, Clock, Mail, Calendar, Briefcase } from "lucide-react";
-import emailjs from "@emailjs/browser";
 import { useReveal } from "../lib/useReveal";
 import { LinkedInIcon } from "../SocialIcons";
 
@@ -81,6 +80,7 @@ function Calculator() {
       return `${q.q}: ${Array.isArray(a) ? a.join(", ") : a || "—"}`;
     }).join("\n");
     try {
+      const emailjs = (await import("@emailjs/browser")).default;
       await emailjs.send(EMAILJS.service, EMAILJS.calcTemplate,
         { name: form.name, email: form.email, company: form.company, calculator_answers },
         { publicKey: EMAILJS.publicKey });
@@ -210,6 +210,7 @@ function SmartForm() {
     if (bad.name || bad.email) return;
     setSending(true);
     try {
+      const emailjs = (await import("@emailjs/browser")).default;
       await emailjs.send(EMAILJS.service, EMAILJS.inquiryTemplate,
         { name: form.name, email: form.email, company: form.company, services: selected.join(", "), message: form.details },
         { publicKey: EMAILJS.publicKey });
