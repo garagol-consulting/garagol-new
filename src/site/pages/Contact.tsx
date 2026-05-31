@@ -40,6 +40,7 @@ function Calculator() {
   const [form, setForm] = useState({ name: "", email: "", company: "" });
   const [fErr, setFErr] = useState({ name: false, email: false });
   const [sending, setSending] = useState(false);
+  const [sendErr, setSendErr] = useState("");
 
   const select = (q: Q, v: string) => {
     setErr(false);
@@ -84,8 +85,9 @@ function Calculator() {
         { name: form.name, email: form.email, company: form.company, calculator_answers },
         { publicKey: EMAILJS.publicKey });
       setStep(6);
-    } catch {
-      setStep(6); // still acknowledge; submission is best-effort
+    } catch (err) {
+      console.error("EmailJS (estimate) failed:", err);
+      setSendErr("We couldn't send that — please email hello@garagol.com, or try again.");
     } finally {
       setSending(false);
     }
@@ -146,6 +148,7 @@ function Calculator() {
             <button type="button" className="btn btn--ghost" onClick={prev}>Back</button>
             <button type="submit" className="btn btn--primary">{sending ? "Sending…" : "Get my estimate"}</button>
           </div>
+          {sendErr && <p className="calc__hint" style={{ color: "var(--coral)", marginTop: 12 }}>{sendErr}</p>}
         </form>
       </div>
 
@@ -179,6 +182,7 @@ function SmartForm() {
   const [fErr, setFErr] = useState({ name: false, email: false });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [sendErr, setSendErr] = useState("");
   const typer = useRef<number | null>(null);
 
   const activePrompt = selected.length ? CHIPS.find((c) => c[0] === selected[selected.length - 1])![1] : BASE_PLACEHOLDER;
@@ -210,8 +214,9 @@ function SmartForm() {
         { name: form.name, email: form.email, company: form.company, services: selected.join(", "), message: form.details },
         { publicKey: EMAILJS.publicKey });
       setSent(true);
-    } catch {
-      setSent(true);
+    } catch (err) {
+      console.error("EmailJS (inquiry) failed:", err);
+      setSendErr("We couldn't send that — please email hello@garagol.com, or try again.");
     } finally {
       setSending(false);
     }
@@ -267,6 +272,7 @@ function SmartForm() {
               onChange={(e) => setForm({ ...form, details: e.target.value })} />
           </div>
           <button type="submit" className="btn btn--primary btn--block">{sending ? "Sending…" : "Send message"}</button>
+          {sendErr && <p className="calc__hint" style={{ color: "var(--coral)", marginTop: 12 }}>{sendErr}</p>}
         </div>
       </div>
     </form>
