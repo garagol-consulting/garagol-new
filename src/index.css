@@ -1,97 +1,27 @@
 @import "tailwindcss";
-@font-face {
-  font-family: AtkinsonBold;
-  src: url("./assets/AtkinsonHyperlegible-Bold.ttf") format("truetype");
-  font-weight: 700;
-}
-@font-face {
-  font-family: AtkinsonItalic;
-  src: url("./assets/AtkinsonHyperlegible-Italic.ttf") format("truetype");
-  font-style: italic;
-}
-@font-face {
-  font-family: AtkinsonRegular;
-  src: url("./assets/AtkinsonHyperlegible-Regular.ttf") format("truetype");
-}
 
-/* Remove default cursor everywhere */
-* {
-  cursor: none !important;
-}
+/* Reference design system (framework-agnostic) — the visual source of truth.
+   theme = tokens, base = reset/nav/footer/buttons/cards, home/pages = sections. */
+@import "./styles/theme.css";
+@import "./styles/base.css";
+@import "./styles/home.css";
+@import "./styles/pages.css";
 
-/* Optional: Ensure pointer state is visible */
-a,
-button,
-[role="button"],
-[onclick],
-[href] {
-  cursor: none !important;
-}
-body {
-  font-family: "AtkinsonRegular";
-  position: relative;
-  background-color: #f9f9f9
-  /* overflow-x: hidden; */
-}
-.title {
-  @apply text-3xl md:text-5xl lg:text-6xl font-[700] text-[#242424] mb-5 font-[AtkinsonBold];
-}
-.paragraph {
-  @apply text-xl md:text-2xl lg:text-2xl font-[400] text-[#242424] mb-12;
-}
-.container {
-  @apply lg:w-[84vw] xl:w-[84vw] w-[90vw]  mx-auto;
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes floatTopLeft {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(-100px, -100px);
-  }
-}
-
-@keyframes floatBottomRight {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(100px, 100px);
-  }
-}
-
-@layer utilities {
-  .animate-fadeIn {
-    animation: fadeIn 1s ease-out;
-  }
-
-  .animate-floatTopLeft {
-    animation: floatTopLeft 8s ease-in-out infinite;
-  }
-
-  .animate-floatBottomRight {
-    animation: floatBottomRight 8s ease-in-out infinite;
-  }
-}
-
-.send {
-  background: linear-gradient(
-      rgba(134, 117, 242, 0.8),
-      rgba(134, 117, 242, 0.8)
-    ),
-    url("./assets/background.png");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+/* Mirror core tokens into Tailwind's theme so utilities (bg-bg, text-t1, font-mono…)
+   resolve to the same values if a component prefers utilities over the ported classes. */
+@theme {
+  --color-bg: #0b0b0d;
+  --color-surface: #131316;
+  --color-elevated: #1a1a1f;
+  --color-t1: #f4f4f5;
+  --color-t2: #a1a1aa;
+  --color-t3: #71717a;
+  --color-purple: #8675f2;
+  --color-purple-2: #9c8ef6;
+  --color-coral: #f85b4c;
+  --color-yellow: #edd750;
+  --color-green: #4ade80;
+  --font-display: "Geist", "Inter Tight", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
 }

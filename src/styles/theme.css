@@ -1,0 +1,78 @@
+/* ============================================================
+   GARAGOL — "Modern Tech (Dark Product)" design tokens
+   Dark-first system. Purple is the single dominant accent.
+   ============================================================ */
+:root {
+  /* ---- Surfaces ---- */
+  --bg:        #0B0B0D;
+  --surface:   #131316;
+  --elevated:  #1A1A1F;
+  --elevated-2:#202027;
+
+  /* ---- Hairlines / borders ---- */
+  --line:      rgba(255,255,255,0.08);
+  --line-2:    rgba(255,255,255,0.12);
+  --line-3:    rgba(255,255,255,0.18);
+
+  /* ---- Text ---- */
+  --t1: #F4F4F5;   /* primary   */
+  --t2: #A1A1AA;   /* secondary */
+  --t3: #71717A;   /* tertiary  */
+
+  /* ---- Brand accent (dominant) ---- */
+  --purple:     #8675F2;
+  --purple-2:   #9C8EF6;   /* lighter, for hover text/links */
+  --purple-600: #6E5AE6;   /* pressed / solid hover         */
+  --purple-ink: #2A2550;   /* deep, for tinted surfaces     */
+  --glow:       rgba(134,117,242,0.35);
+  --glow-soft:  rgba(134,117,242,0.14);
+
+  /* ---- Functional secondary accents (sparing) ---- */
+  --coral:  #F85B4C;
+  --yellow: #EDD750;
+  --green:  #4ADE80;
+
+  /* ---- Accent tints (10% on dark) ---- */
+  --purple-tint: rgba(134,117,242,0.12);
+  --coral-tint:  rgba(248,91,76,0.12);
+  --yellow-tint: rgba(237,215,80,0.12);
+  --green-tint:  rgba(74,222,128,0.12);
+
+  /* ---- Type ---- */
+  --f-display: "Geist", "Inter Tight", system-ui, sans-serif;
+  --f-body:    "Inter", system-ui, -apple-system, sans-serif;
+  --f-mono:    "Geist Mono", "JetBrains Mono", ui-monospace, monospace;
+
+  /* fluid display sizes */
+  --fs-hero:   clamp(40px, 6.4vw, 84px);
+  --fs-h1:     clamp(34px, 4.6vw, 60px);
+  --fs-h2:     clamp(28px, 3.4vw, 44px);
+  --fs-h3:     clamp(20px, 2vw, 26px);
+  --fs-lead:   clamp(17px, 1.6vw, 21px);
+  --fs-body:   16px;
+  --fs-sm:     14px;
+  --fs-kicker: 13px;
+
+  /* ---- Spacing (8px scale) ---- */
+  --s1: 8px; --s2: 16px; --s3: 24px; --s4: 32px; --s5: 48px;
+  --s6: 64px; --s7: 96px; --s8: 128px;
+  --section-y: clamp(72px, 9vw, 140px);
+
+  /* ---- Geometry ---- */
+  --r-sm: 8px;
+  --r:    14px;
+  --r-lg: 20px;
+  --r-pill: 999px;
+  --maxw: 1240px;
+  --gutter: clamp(20px, 5vw, 48px);
+
+  /* ---- Elevation ---- */
+  --shadow:   0 1px 0 rgba(255,255,255,0.04) inset, 0 12px 40px -16px rgba(0,0,0,0.7);
+  --shadow-lg:0 1px 0 rgba(255,255,255,0.05) inset, 0 30px 80px -28px rgba(0,0,0,0.85);
+  --ring: 0 0 0 1px var(--line);
+}
+
+/* honor reduced motion at the token layer too */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}

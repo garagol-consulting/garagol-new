@@ -1,64 +1,72 @@
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Routes, Route, BrowserRouter, useLocation} from "react-router-dom"; // Changed to BrowserRouter
-import Navbar from "./components/Navbar";
-import Main from "./pages/Main";
-import CustomCursor from "./components/CustomCursor";
-import SplashScreen from "./components/SplashScreen";
-import FAQ from "./pages/FAQ";
-import Calculator from "./pages/Calculator";
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import Nav from "./site/Nav";
+import Footer from "./site/Footer";
+import CustomCursor from "./site/CustomCursor";
+import RouteMeta from "./site/lib/RouteMeta";
+import Home from "./site/pages/Home";
+import Work from "./site/pages/Work";
+import CaseIgnify from "./site/pages/CaseIgnify";
+import Services from "./site/pages/Services";
+import About from "./site/pages/About";
+import Pricing from "./site/pages/Pricing";
+import Contact from "./site/pages/Contact";
 
-const AppContent = () => {
-  const [showSplash, setShowSplash] = useState(true);
-  const [showContent, setShowContent] = useState(false);
-  const location = useLocation();
-
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-    });
-  }, [location]);
-
+// Temporary stub until each route is built out (tasks #4–#8).
+function Stub({ title }: { title: string }) {
   return (
-    <div className="relative cursor-none">
-      <CustomCursor />
-      <AnimatePresence mode="wait">
-        {showSplash && (
-          <SplashScreen
-            onComplete={() => {
-              setShowSplash(false);
-              setShowContent(true);
-            }}
-          />
-        )}
-      </AnimatePresence>
-
-      {showContent && (
-        <motion.div
-          key={location.pathname} // Important for page transitions
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Navbar />
-          <Routes location={location}>
-            <Route path="/" element={<Main />} />
-            <Route path="/estimate" element={<FAQ />} />
-            <Route path="/calculator" element={<Calculator />} />
-          </Routes>
-        </motion.div>
-      )}
-    </div>
+    <main className="section">
+      <div className="wrap">
+        <span className="kicker"><span className="num">—</span> {title}</span>
+        <h1 className="h1" style={{ marginTop: 16 }}>{title}</h1>
+        <p className="lead" style={{ marginTop: 12 }}>Section coming together…</p>
+      </div>
+    </main>
   );
-};
+}
 
-const App = () => {
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
+
+function AnimatedRoutes() {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.25 }}
+      >
+        <Routes location={location}>
+          <Route path="/" element={<Home />} />
+          <Route path="/work" element={<Work />} />
+          <Route path="/work/ignify" element={<CaseIgnify />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<Stub title="Page not found" />} />
+        </Routes>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
+export default function App() {
   return (
     <BrowserRouter>
-      <AppContent />
+      <CustomCursor />
+      <ScrollToTop />
+      <RouteMeta />
+      <Nav />
+      <AnimatedRoutes />
+      <Footer />
     </BrowserRouter>
   );
-};
-
-export default App;
+}
