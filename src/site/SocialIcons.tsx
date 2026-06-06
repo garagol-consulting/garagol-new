@@ -1,4 +1,4 @@
-// Inline brand glyphs (single-path, fill=currentColor) — reliable on dark.
+// Inline brand glyphs (single-path, fill=currentColor), reliable on dark.
 // lucide-react no longer ships brand logos, so these are vendored from simple-icons.
 type P = { size?: number };
 

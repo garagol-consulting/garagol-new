@@ -4,10 +4,10 @@ import { Check, ChevronDown, ArrowRight } from "lucide-react";
 import { useReveal } from "../lib/useReveal";
 
 const FAQS = [
-  { q: "How do you price?", a: "We scope each engagement to your goals and give you a clear, fixed plan up front. Fixed-scope projects are priced per milestone; ongoing work is a monthly rate for a dedicated senior team. Run the estimate for a tailored number." },
+  { q: "How do you price?", a: "We scope each engagement to your goals and give you a clear, fixed plan up front. Fixed-scope work across strategy, brand, marketing, and build is priced per milestone; ongoing work is a monthly rate for a dedicated senior team. Run the estimate for a tailored number." },
   { q: "How fast can we start?", a: "Usually within days. After a short discovery call we confirm scope, and you'll have a first working draft within a week of kick-off." },
-  { q: "Who owns the IP?", a: "You do. Everything we design and build is yours — code, designs, and infrastructure — with full handover and documentation." },
-  { q: "Are there any hidden fees?", a: "No. Pricing is transparent and agreed before work begins. If scope changes, we discuss it with you first — never a surprise invoice." },
+  { q: "Who owns the IP?", a: "You do. Everything we create is yours (strategy, brand, designs, code, and infrastructure) with full handover and documentation." },
+  { q: "Are there any hidden fees?", a: "No. Pricing is transparent and agreed before work begins. If scope changes, we discuss it with you first, never a surprise invoice." },
 ];
 
 function FaqItem({ q, a }: { q: string; a: string }) {
@@ -36,7 +36,7 @@ export default function Pricing() {
           <span className="kicker" data-reveal style={{ justifyContent: "center" }}><span className="num">●</span> PRICING</span>
           <h1 data-reveal style={{ marginInline: "auto" }}>Simple, transparent engagements.</h1>
           <p className="lead" data-reveal data-reveal-delay="1" style={{ marginInline: "auto" }}>
-            Pick the way of working that fits — no hidden fees, ever. Want a number? Run the estimate and we'll tailor it.
+            Pick the way of working that fits, across strategy, brand, marketing, and build, with no hidden fees, ever. Want a number? Run the estimate and we'll tailor it.
           </p>
         </div>
       </section>
@@ -46,13 +46,13 @@ export default function Pricing() {
           <div className="tiers">
             <div className="card tier" data-reveal>
               <div className="tier__name">Launch</div>
-              <div className="tier__who">For new products &amp; MVPs</div>
+              <div className="tier__who">For new products, brands &amp; MVPs</div>
               <div className="tier__price">Price on request</div>
               <ul className="tier__list">
-                <li><Check size={16} /> Discovery &amp; scoping</li>
-                <li><Check size={16} /> Product &amp; UI/UX design</li>
+                <li><Check size={16} /> Strategy, discovery &amp; scoping</li>
+                <li><Check size={16} /> Brand, product &amp; UI/UX design</li>
                 <li><Check size={16} /> Full build (web / mobile)</li>
-                <li><Check size={16} /> Launch &amp; handover</li>
+                <li><Check size={16} /> Launch, go-to-market &amp; handover</li>
               </ul>
               <Link to="/contact#estimate" className="btn btn--ghost btn--block">Request pricing</Link>
             </div>
@@ -60,12 +60,12 @@ export default function Pricing() {
             <div className="card tier is-featured" data-reveal data-reveal-delay="1">
               <span className="tier__badge">Most popular</span>
               <div className="tier__name">Scale</div>
-              <div className="tier__who">Ongoing development</div>
+              <div className="tier__who">Ongoing growth &amp; development</div>
               <div className="tier__price">Price on request</div>
               <ul className="tier__list">
-                <li><Check size={16} /> Dedicated senior engineers</li>
+                <li><Check size={16} /> Dedicated senior team</li>
                 <li><Check size={16} /> Sprint-based delivery</li>
-                <li><Check size={16} /> Team augmentation</li>
+                <li><Check size={16} /> Design, marketing &amp; engineering</li>
                 <li><Check size={16} /> Roadmap &amp; priority support</li>
               </ul>
               <Link to="/contact#estimate" className="btn btn--primary btn--block">Request pricing</Link>

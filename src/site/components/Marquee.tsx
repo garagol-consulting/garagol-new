@@ -1,13 +1,13 @@
 const ITEMS = [
-  "24/7 Support",
-  "Custom Solutions",
-  "Faster Delivery",
+  "Strategy-Led",
+  "Brand & Design",
+  "Growth Marketing",
   "Garagol is built for business.",
-  "Secure Infrastructure",
-  "Scalable Performance",
+  "Secure by Default",
+  "Built to Scale",
   "Data-Driven",
-  "Future-Proof Tech",
-  "End-to-End Service",
+  "End-to-End",
+  "24/7 Support",
 ];
 const KEY = "Garagol is built for business.";
 

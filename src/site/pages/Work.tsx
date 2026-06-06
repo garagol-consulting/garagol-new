@@ -16,12 +16,10 @@ const INDUSTRY_CHIPS = [
 
 const DISCIPLINE_CHIPS = [
   { value: "all", label: "All" },
-  { value: "web", label: "Web" },
-  { value: "mobile", label: "Mobile" },
-  { value: "cloud", label: "Cloud" },
-  { value: "data", label: "Data" },
-  { value: "security", label: "Security" },
-  { value: "design", label: "Design" },
+  { value: "strategy", label: "Strategy" },
+  { value: "brand", label: "Brand" },
+  { value: "marketing", label: "Marketing" },
+  { value: "build", label: "Build" },
 ];
 
 type WorkCardData = {
@@ -42,85 +40,85 @@ const CARDS: WorkCardData[] = [
   {
     to: "/work/ignify",
     industry: "saas",
-    discipline: "mobile cloud security design",
+    discipline: "build strategy",
     flagship: true,
-    mediaNote: "IGNIFY · platform",
+    mediaNote: "IGNIFY (platform)",
     title: "IGNIFY",
     liveTag: true,
     metricValue: "6 surfaces",
-    metricKey: "mobile · cloud · admin",
+    metricKey: "strategy, build, launch",
     tags: ["SaaS", "Real-time"],
     caseStudy: true,
   },
   {
     to: "/contact",
     industry: "fintech",
-    discipline: "web security",
-    mediaNote: "Project · Fintech",
-    title: "Project — Fintech",
+    discipline: "brand build",
+    mediaNote: "Project (Fintech)",
+    title: "Brand & Web (Fintech)",
     metricValue: "[ metric ]",
     metricKey: "add result",
-    tags: ["Web", "Security"],
+    tags: ["Brand", "Build"],
   },
   {
     to: "/contact",
-    industry: "logistics",
-    discipline: "mobile data",
-    mediaNote: "Project · Logistics",
-    title: "Project — Logistics",
+    industry: "consumer",
+    discipline: "marketing",
+    mediaNote: "Project (Consumer)",
+    title: "Growth & SEO (Consumer)",
     metricValue: "[ metric ]",
     metricKey: "add result",
-    tags: ["Mobile", "Data"],
+    tags: ["Marketing", "SEO"],
   },
   {
     to: "/contact",
     industry: "health",
-    discipline: "web design",
-    mediaNote: "Project · Health",
-    title: "Project — Health",
+    discipline: "strategy",
+    mediaNote: "Project (Health)",
+    title: "Strategy Engagement (Health)",
     metricValue: "[ metric ]",
     metricKey: "add result",
-    tags: ["Web", "Design"],
+    tags: ["Strategy", "Research"],
   },
   {
     to: "/contact",
-    industry: "consumer",
-    discipline: "mobile design",
-    mediaNote: "Project · Consumer",
-    title: "Project — Consumer",
+    industry: "logistics",
+    discipline: "strategy build",
+    mediaNote: "Project (Logistics)",
+    title: "Strategy & Build (Logistics)",
     metricValue: "[ metric ]",
     metricKey: "add result",
-    tags: ["Mobile", "Design"],
+    tags: ["Strategy", "Build"],
   },
   {
     to: "/contact",
     industry: "saas",
-    discipline: "cloud data",
-    mediaNote: "Project · SaaS",
-    title: "Project — SaaS",
+    discipline: "brand marketing",
+    mediaNote: "Project (SaaS)",
+    title: "Brand & Growth (SaaS)",
     metricValue: "[ metric ]",
     metricKey: "add result",
-    tags: ["Cloud", "Data"],
+    tags: ["Brand", "Marketing"],
   },
   {
     to: "/contact",
     industry: "fintech",
-    discipline: "cloud security",
-    mediaNote: "Project · Fintech",
-    title: "Project — Fintech",
+    discipline: "marketing build",
+    mediaNote: "Project (Fintech)",
+    title: "Campaign & Build (Fintech)",
     metricValue: "[ metric ]",
     metricKey: "add result",
-    tags: ["Cloud", "Security"],
+    tags: ["Marketing", "Build"],
   },
   {
     to: "/contact",
     industry: "consumer",
-    discipline: "web mobile",
-    mediaNote: "Project · Consumer",
-    title: "Project — Consumer",
+    discipline: "brand build",
+    mediaNote: "Project (Consumer)",
+    title: "Brand & Build (Consumer)",
     metricValue: "[ metric ]",
     metricKey: "add result",
-    tags: ["Web", "Mobile"],
+    tags: ["Brand", "Build"],
   },
 ];
 
@@ -144,11 +142,11 @@ export default function Work() {
       <section className="page-hero">
         <div className="glow glow--purple" />
         <div className="wrap">
-          <span className="kicker" data-reveal><span className="num">01</span> — SELECTED WORK</span>
+          <span className="kicker" data-reveal><span className="num">01</span> SELECTED WORK</span>
           <div className="page-hero__row">
             <h1 data-reveal>Selected work.</h1>
           </div>
-          <p className="lead" data-reveal data-reveal-delay="1">Outcomes across industries — from native mobile apps to secure cloud backends. Filter by what matters to you.</p>
+          <p className="lead" data-reveal data-reveal-delay="1">Outcomes across industries and disciplines: strategy, brand, marketing, and build. Filter by what matters to you.</p>
         </div>
       </section>
 
@@ -213,7 +211,7 @@ export default function Work() {
               </Link>
             ))}
           </div>
-          <p className="muted-3" style={{ fontSize: 13, marginTop: "var(--s3)" }} data-reveal>Placeholder projects shown — swap in real case studies, imagery, and metrics. The IGNIFY card links to a full case-study template.</p>
+          <p className="muted-3" style={{ fontSize: 13, marginTop: "var(--s3)" }} data-reveal>Placeholder projects shown (swap in real case studies, imagery, and metrics). The IGNIFY card links to a full case-study template.</p>
         </div>
       </section>
 
@@ -222,7 +220,7 @@ export default function Work() {
           <div className="cta-panel" data-reveal>
             <div className="glow glow--purple" />
             <h2 className="h2">Want results like these?</h2>
-            <p className="lead">Tell us what you're building — we'll come back with a clear plan and a first draft within a week.</p>
+            <p className="lead">Tell us what you're building and we'll come back with a clear plan and a first draft within a week.</p>
             <div className="cta-panel__btns"><Link to="/contact" className="btn btn--primary btn--lg">Start a project <ArrowRight className="arrow" /></Link><Link to="/contact#estimate" className="btn btn--ghost btn--lg">Get an estimate</Link></div>
           </div>
         </div>

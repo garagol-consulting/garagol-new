@@ -1,5 +1,5 @@
 /* ============================================================
-   GARAGOL — inner page styles (work, case, services, about,
+   GARAGOL - inner page styles (work, case, services, about,
    pricing, contact). Reuses base.css components.
    ============================================================ */
 
@@ -187,7 +187,7 @@
 .alt-contact a svg { width: 17px; height: 17px; color: var(--purple-2); }
 
 /* ============================================================
-   MOBILE / RESPONSIVE — inner pages. Desktop (>768px) unchanged.
+   MOBILE / RESPONSIVE - inner pages. Desktop (>768px) unchanged.
    ============================================================ */
 /* ≥44px tap targets for filter & service chips on touch screens. */
 @media (max-width: 768px) {

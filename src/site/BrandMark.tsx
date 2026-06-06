@@ -1,4 +1,4 @@
-// Garagol "Gg" monogram — inline so it inherits currentColor (white on dark).
+// Garagol "Gg" monogram, inline so it inherits currentColor (white on dark).
 export default function BrandMark({ className = "brand__mark" }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 62 62" aria-hidden="true" fill="currentColor">

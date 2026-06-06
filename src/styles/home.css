@@ -1,5 +1,5 @@
 /* ============================================================
-   GARAGOL — homepage sections
+   GARAGOL - homepage sections
    ============================================================ */
 
 /* ---- HERO ---- */
@@ -11,7 +11,7 @@
 }
 .hero__glow-1 { width: 620px; height: 620px; top: -240px; left: 50%; transform: translateX(-55%); background: var(--glow); opacity: .4; }
 .hero__inner { position: relative; z-index: 2; }
-/* Pure-CSS staggered entrance — no JS/observer dependency, so the hero
+/* Pure-CSS staggered entrance - no JS/observer dependency, so the hero
    is never stuck hidden. Reduced-motion users get it instantly. */
 .hero__inner > [data-hero] { opacity: 0; animation: heroIn .7s cubic-bezier(.22,.61,.36,1) both; }
 .hero__inner > [data-hero]:nth-child(1) { animation-delay: .05s; }
@@ -146,7 +146,7 @@
 .cta-panel__chips { display: flex; gap: 8px; justify-content: center; margin-top: 26px; flex-wrap: wrap; }
 
 /* ============================================================
-   MOBILE / RESPONSIVE — home sections. Desktop (>768px) unchanged.
+   MOBILE / RESPONSIVE - home sections. Desktop (>768px) unchanged.
    ============================================================ */
 /* Decorative hero "G": keep it a small, clipped corner watermark on phones. */
 @media (max-width: 768px) {

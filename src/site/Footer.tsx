@@ -15,7 +15,7 @@ export default function Footer() {
               <span className="brand__word">Garagol<span className="brand__sub">Consulting</span></span>
             </Link>
             <p className="footer__tagline">
-              Full-stack product studio. We design, build, and secure software you can bet your business on.
+              Digital consultancy and studio. We advise and we build across strategy, brand, marketing, and engineering.
             </p>
             <div className="footer__social">
               <a href="https://www.linkedin.com/company/garagol/" aria-label="LinkedIn" target="_blank" rel="noreferrer"><LinkedInIcon /></a>
@@ -33,10 +33,10 @@ export default function Footer() {
           </div>
           <div className="footer__col">
             <h4>Services</h4>
-            <Link to="/services#build">Build &amp; Launch</Link>
-            <Link to="/services#optimize">Optimize &amp; Secure</Link>
-            <Link to="/services#data">Data &amp; Insights</Link>
-            <Link to="/services#strategy">Strategy &amp; Support</Link>
+            <Link to="/services#strategy">Strategy &amp; Consulting</Link>
+            <Link to="/services#brand">Brand &amp; Design</Link>
+            <Link to="/services#marketing">Marketing &amp; Growth</Link>
+            <Link to="/services#build">Build &amp; Engineering</Link>
           </div>
           <div className="footer__col">
             <h4>Get in touch</h4>

@@ -1,7 +1,7 @@
 /* ============================================================
-   GARAGOL — base: reset, type, layout, nav, footer, components
+   GARAGOL - base: reset, type, layout, nav, footer, components
    ============================================================ */
-/* Brand wordmark face — same family the "Gg" monogram is built from,
+/* Brand wordmark face - same family the "Gg" monogram is built from,
    so the title's G matches the logo's G. */
 @font-face { font-family: "Atkinson Hyperlegible"; src: url("../assets/AtkinsonHyperlegible-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: "Atkinson Hyperlegible"; src: url("../assets/AtkinsonHyperlegible-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }

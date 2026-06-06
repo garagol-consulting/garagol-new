@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Reference design system (framework-agnostic) — the visual source of truth.
+/* Reference design system (framework-agnostic) - the visual source of truth.
    theme = tokens, base = reset/nav/footer/buttons/cards, home/pages = sections. */
 @import "./styles/theme.css";
 @import "./styles/base.css";

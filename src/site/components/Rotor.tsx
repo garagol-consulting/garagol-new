@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const WORDS = ["Designed.", "Engineered.", "Secured.", "Scaled."];
+const WORDS = ["Strategized.", "Designed.", "Marketed.", "Built."];
 
 // Hero rotating keyword: "EVERY PROJECT: <typed word>" + purple caret.
 // Fixed-height line (via .rotor CSS) so the paragraph below never shifts.

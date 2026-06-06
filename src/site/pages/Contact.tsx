@@ -28,7 +28,7 @@ const QUESTIONS: Q[] = [
   { id: "timeline", step: "QUESTION 4 / 5", q: "What's your ideal timeline?", hint: "Pick one.", multi: false,
     options: [["1mo", "Within 1 month"], ["1-3mo", "1–3 months"], ["3-6mo", "3–6 months"], ["Flexible", "Flexible / Not sure"]] },
   { id: "support", step: "QUESTION 5 / 5", q: "Will you need ongoing support and scalability planning?", hint: "Pick one.", multi: false,
-    options: [["Yes", "Yes, definitely"], ["Maybe", "Maybe — let's discuss"], ["No", "No, just a one-time project"]] },
+    options: [["Yes", "Yes, definitely"], ["Maybe", "Maybe, let's discuss"], ["No", "No, just a one-time project"]] },
 ];
 
 function Calculator() {
@@ -77,7 +77,7 @@ function Calculator() {
     setSending(true);
     const calculator_answers = QUESTIONS.map((q) => {
       const a = answers[q.id];
-      return `${q.q}: ${Array.isArray(a) ? a.join(", ") : a || "—"}`;
+      return `${q.q}: ${Array.isArray(a) ? a.join(", ") : a || "not specified"}`;
     }).join("\n");
     try {
       const emailjs = (await import("@emailjs/browser")).default;
@@ -87,7 +87,7 @@ function Calculator() {
       setStep(6);
     } catch (err) {
       console.error("EmailJS (estimate) failed:", err);
-      setSendErr("We couldn't send that — please email hello@garagol.com, or try again.");
+      setSendErr("We couldn't send that. Please email hello@garagol.com, or try again.");
     } finally {
       setSending(false);
     }
@@ -171,7 +171,7 @@ const CHIPS: [string, string][] = [
   ["Data & Cloud Solutions", "What does your current data and cloud setup look like today?"],
   ["Security & IT Consulting", "What are your main security or compliance concerns right now?"],
   ["Discovery Call", "What would you like to cover on a discovery call?"],
-  ["Something else", "Tell us what you have in mind — we're all ears."],
+  ["Something else", "Tell us what you have in mind, we're all ears."],
 ];
 const BASE_PLACEHOLDER = "Tell us a little about your project…";
 
@@ -217,7 +217,7 @@ function SmartForm() {
       setSent(true);
     } catch (err) {
       console.error("EmailJS (inquiry) failed:", err);
-      setSendErr("We couldn't send that — please email hello@garagol.com, or try again.");
+      setSendErr("We couldn't send that. Please email hello@garagol.com, or try again.");
     } finally {
       setSending(false);
     }
@@ -228,7 +228,7 @@ function SmartForm() {
       <div className="card panel" style={{ marginTop: "var(--s4)" }} data-reveal data-reveal-delay="1">
         <div className="calc__done">
           <div className="ok"><Check /></div>
-          <div className="panel__title" style={{ textAlign: "center" }}>Thanks — message sent.</div>
+          <div className="panel__title" style={{ textAlign: "center" }}>Thanks, message sent.</div>
           <p className="panel__desc" style={{ marginTop: 10, textAlign: "center" }}>We'll get back to you within ~2 hours during business hours.</p>
         </div>
       </div>
@@ -303,7 +303,7 @@ export default function Contact() {
       <section className="section--tight" id="inquiry">
         <div className="wrap">
           <div className="section-head" data-reveal>
-            <span className="kicker">OR — QUICK INQUIRY</span>
+            <span className="kicker">OR · QUICK INQUIRY</span>
             <h2 className="h2">How can we help?</h2>
             <p className="lead">Tell us what you're interested in and we'll tailor the conversation.</p>
           </div>
