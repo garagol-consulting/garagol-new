@@ -5,10 +5,10 @@ import { useReveal } from "../lib/useReveal";
 import { LinkedInIcon } from "../SocialIcons";
 
 const EMAILJS = {
-  service: "service_hssl9mg",
-  publicKey: "V08MdMTqLq65ILtaE",
-  calcTemplate: "template_tawpqaq",
-  inquiryTemplate: "template_zljnr4n",
+  service: "service_glers4a",
+  publicKey: "Pi0_YvtwGmHL5zvfC",
+  calcTemplate: "template_95eb3lb",
+  inquiryTemplate: "template_cy47v8g",
 };
 
 const reduceMotion = () =>
