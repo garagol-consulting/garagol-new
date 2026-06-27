@@ -31,7 +31,6 @@ export default function IgnifyDemo() {
             title="IGNIFY live mobile app demo"
             className="demo__frame"
             style={{ width: NATIVE_W, height: NATIVE_H, transform: `scale(${scale})` }}
-            sandbox="allow-scripts allow-same-origin allow-popups"
           />
         </div>
       ) : (
