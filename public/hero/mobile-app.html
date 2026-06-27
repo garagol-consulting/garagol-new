@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<!-- Render the real mobile app at its native device width (402); the parent
+     page scales the whole iframe to fit the phone slot in the hero. -->
+<meta name="viewport" content="width=402" />
+<title>IGNIFY mobile app</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" />
+<style>
+  html, body { margin: 0; padding: 0; width: 402px; height: 874px; background: transparent; overflow: hidden; }
+  #root { width: 402px; height: 874px; }
+  * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+  ::selection { background: #FBD13E; color: #1B2440; }
+
+  /* Heartbeat affordance — invites the tap on the "reports drafted" banner.
+     Ambient, so it's disabled under reduced-motion. Never autoplays the loop. */
+  @keyframes igniPulse {
+    0%, 100% { box-shadow: 0 16px 28px -16px rgba(14,22,35,.30); }
+    50%      { box-shadow: 0 16px 30px -13px rgba(251,209,62,.55), 0 0 0 1.5px rgba(251,209,62,.40); }
+  }
+  .igniDraft { animation: igniPulse 2.6s ease-in-out infinite; }
+  .igniDraft:hover  { filter: brightness(1.05); }
+  .igniDraft:active { transform: scale(.99); }
+
+  @keyframes igniSpin { to { transform: rotate(360deg); } }
+  .rsSpin { animation: igniSpin .7s linear infinite; }
+  .rsSend:hover  { filter: brightness(1.07); }
+  .rsSend:active { transform: scale(.985); }
+
+  /* "someone is typing" dots in a chat bubble */
+  @keyframes igTyping { 0%, 70%, 100% { transform: translateY(0); opacity: .4; } 35% { transform: translateY(-3px); opacity: 1; } }
+  .igTyDot { animation: igTyping 1.2s ease-in-out infinite; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .igniDraft { animation: none; }
+    .igTyDot { animation: none; }
+    .igPop { animation: none; opacity: 1; } .igGlow::before { animation: none; }
+  }
+
+  /* per-beat life: staggered popups + a Google-style rotating-rainbow button border */
+  @keyframes igPop { 0%{opacity:0;transform:translateY(-13px) scale(.96)} 8%{opacity:1;transform:translateY(0) scale(1)} 11%{transform:scale(1.03)} 14%{transform:scale(1)} 86%{opacity:1} 95%{opacity:0;transform:translateY(-6px)} 100%{opacity:0} }
+  .igPop { animation: igPop 6.6s ease-in-out infinite; }
+  @property --igang { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+  @keyframes igAng { to { --igang: 360deg; } }
+  .igGlow { position: relative; }
+  .igGlow::before { content:""; position:absolute; inset:-2px; border-radius:17px; padding:2px; background: conic-gradient(from var(--igang), #FBD13E,#EE8422,#D04160,#751846,#33A1AE,#2563EB,#FBD13E); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; animation: igAng 3s linear infinite; pointer-events:none; }
+  /* family-multi feed: a gentle highlight wave so the home view stays alive */
+  @keyframes fmpulse { 0%,14%,100% { transform: none; filter: none; } 6% { transform: scale(1.03); filter: drop-shadow(0 7px 16px rgba(251,209,62,.5)); } }
+  .fmrow { animation: fmpulse 8s ease-in-out infinite; will-change: transform; }
+  .fmrow:nth-child(2){ animation-delay: 1.6s; } .fmrow:nth-child(3){ animation-delay: 3.2s; } .fmrow:nth-child(4){ animation-delay: 4.8s; } .fmrow:nth-child(5){ animation-delay: 6.4s; }
+  @media (prefers-reduced-motion: reduce) { .fmrow { animation: none; } }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React (production UMD) — light; no Babel runtime, JSX is precompiled -->
+  <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+  <!-- the real iOS device frame + the real app screens (esbuild-compiled) -->
+  <script src="/hero/ios-frame.bundle.js"></script>
+  <!-- full design screens (Explore/Calendar/Community), each an isolated IIFE
+       exposing window.Ig* — loaded before the shell that mounts them -->
+  <script src="/hero/screen-explore.bundle.js"></script>
+  <script src="/hero/screen-calendar.bundle.js"></script>
+  <script src="/hero/screen-community.bundle.js"></script>
+  <script src="/hero/screen-account.bundle.js"></script>
+  <script src="/hero/mobile-app.bundle.js"></script>
+</body>
+</html>

@@ -62,12 +62,9 @@ export default function Home() {
           <div className="bento bento--work" style={{ marginTop: "var(--s5)" }}>
             <Link to="/work/ignify" className="card card--hover work-card work-card--flag" data-reveal>
               <div className="work-card__media">
-                <div className="mock">
-                  <div className="mock__bar"><i /><i /><i /></div>
-                  <div className="mock__screen"><span className="mock__chip c1" /><span className="mock__chip c2" /><span className="mock__chip c3" /></div>
-                </div>
+                <img className="work-card__img" loading="lazy" width={1280} height={720} src="/case-studies/ignify/studio-cover.jpg" alt="IGNIFY, the platform Garagol built, running at a real music academy" />
                 <span className="tag tag--purple mock__tag">Flagship</span>
-                <span className="media-note">IGNIFY · platform mockup</span>
+                <span className="media-note">IGNIFY · live platform</span>
               </div>
               <div className="work-card__body">
                 <div className="work-card__top">
