@@ -64,7 +64,6 @@ export default function Home() {
               <div className="work-card__media">
                 <img className="work-card__img" loading="lazy" width={1280} height={720} src="/case-studies/ignify/studio-cover.jpg" alt="IGNIFY, the platform Garagol built, running at a real music academy" />
                 <span className="tag tag--purple mock__tag">Flagship</span>
-                <span className="media-note">IGNIFY · live platform</span>
               </div>
               <div className="work-card__body">
                 <div className="work-card__top">
