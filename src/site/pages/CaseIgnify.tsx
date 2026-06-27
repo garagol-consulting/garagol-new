@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, Smartphone, Cloud, Sparkles } from "lucide-react
 import { useReveal } from "../lib/useReveal";
 import PhoneFrame from "../components/PhoneFrame";
 import IgnifyDemo from "../components/IgnifyDemo";
+import AutoVideo from "../components/AutoVideo";
 
 const IMG = "/case-studies/ignify";
 
@@ -62,7 +63,7 @@ export default function CaseIgnify() {
               <div className="ig-beat__cap"><div className="ig-beat__n">01</div><div className="ig-beat__t">Review</div><div className="ig-beat__d">The teacher opens an AI-drafted report, edits if needed, and approves it.</div></div>
             </div>
             <div className="ig-beat" data-reveal data-reveal-delay="1">
-              <PhoneFrame><video src={`${IMG}/teacher-send.mp4`} autoPlay muted loop playsInline /></PhoneFrame>
+              <PhoneFrame><AutoVideo src={`${IMG}/teacher-send.mp4`} poster={`${IMG}/teacher-send-poster.jpg`} label="A teacher sending a lesson report to a family in the IGNIFY app" /></PhoneFrame>
               <div className="ig-beat__cap"><div className="ig-beat__n">02</div><div className="ig-beat__t">Send</div><div className="ig-beat__d">One tap sends it to the family. No copy-paste, no chasing.</div></div>
             </div>
             <div className="ig-beat" data-reveal data-reveal-delay="2">
