@@ -5,9 +5,9 @@ import AutoVideo from "./AutoVideo";
 const IMG = "/case-studies/ignify";
 
 const STEPS = [
-  { n: "01", title: "The draft is ready.", body: "Every completed lesson becomes an AI-drafted report, waiting for the teacher.", right: false },
-  { n: "02", title: "Approve in a tap.", body: "The teacher edits if needed, then sends. No copy-paste, no chasing.", right: true },
-  { n: "03", title: "The family receives it.", body: "A clear, friendly report, and a history that builds lesson over lesson.", right: false },
+  { n: "01", title: "The draft is ready.", body: "Every completed lesson becomes a four-part record, drafted by IGNI in the teacher's voice.", right: false },
+  { n: "02", title: "Approve in a tap.", body: "The teacher is the author, IGNI is the editor. Read it, change a word, tap send.", right: true },
+  { n: "03", title: "The family receives it.", body: "A clear, warm report the family actually opens, building a history lesson over lesson.", right: false },
 ];
 
 // The signature moment: one phone pinned in the viewport while the reader scrolls,

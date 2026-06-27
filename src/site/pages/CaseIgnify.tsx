@@ -11,7 +11,7 @@ const ROLES = [
   "iOS and Android apps",
   "Web console",
   "Serverless AWS backend",
-  "AI lesson-report pipeline",
+  "AI lesson-report pipeline (IGNI)",
   "Payments",
   "Security",
 ];
@@ -26,7 +26,7 @@ export default function CaseIgnify() {
           <div className="cs-eyebrow" data-reveal>Case study</div>
           <h1 className="cs-title" data-reveal>IGNIFY</h1>
           <p className="cs-standfirst" data-reveal data-reveal-delay="1">
-            The operating system for class-based learning businesses. We designed and built all of it.
+            The one calm system class-based studios run on: scheduling, billing, family messaging, and AI-drafted lesson reports. We designed and built all of it.
           </p>
           <div className="cs-hero__row" data-reveal data-reveal-delay="2">
             <div className="cs-hero__meta">
@@ -34,7 +34,7 @@ export default function CaseIgnify() {
                 <div className="cs-meta__cell"><span className="cs-meta__k">Client</span><span className="cs-meta__v">IGNIFY</span></div>
                 <div className="cs-meta__cell"><span className="cs-meta__k">Year</span><span className="cs-meta__v">2025 to 2026</span></div>
                 <div className="cs-meta__cell cs-meta__cell--full"><span className="cs-meta__k">Role</span><span className="cs-meta__v">Strategy, Product design, Engineering</span></div>
-                <div className="cs-meta__cell cs-meta__cell--full"><span className="cs-meta__k">Build</span><span className="cs-meta__v">iOS and Android, Web console, Cloud (AWS), AI pipeline, Payments</span></div>
+                <div className="cs-meta__cell cs-meta__cell--full"><span className="cs-meta__k">Build</span><span className="cs-meta__v">iOS and Android, Web console, Cloud (AWS), AI (IGNI), Payments</span></div>
                 <div className="cs-meta__cell cs-meta__cell--full"><span className="cs-meta__k">Stage</span><span className="cs-meta__v">Zero to live</span></div>
               </div>
             </div>
@@ -53,8 +53,12 @@ export default function CaseIgnify() {
           <div className="cs-rule" data-reveal style={{ marginBottom: "clamp(26px,4vw,40px)" }}><span className="cs-rule__n">01</span><span className="cs-rule__line" /></div>
           <h2 className="cs-h2" data-reveal style={{ maxWidth: "18ch" }}>Class-based studios run on a patchwork.</h2>
           <p className="cs-p" data-reveal>
-            Music schools, dance studios, and martial arts academies stitch together paper, spreadsheets, group chats, and a separate billing tool. Teachers write parent updates late at night, or skip them. Families feel out of the loop. Owners run the whole business across five disconnected apps.
+            Music schools, dance studios, and martial arts academies run the whole business by hand, across five apps and a spreadsheet. Teachers write parent updates late at night, or skip them. Families feel out of the loop. The owner becomes the human glue between disconnected tools.
           </p>
+          <figure className="cs-figure" data-reveal>
+            <img src={`${IMG}/studio-music-class.jpg`} width={1280} height={720} loading="lazy" alt="A group class in session at a real studio" />
+            <figcaption className="cs-figure__cap">Built for studios that teach classes</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -62,10 +66,17 @@ export default function CaseIgnify() {
       <section className="cs-sec cs-sec--alt">
         <div className="cs-wrap">
           <div className="cs-rule" data-reveal style={{ marginBottom: "clamp(26px,4vw,40px)" }}><span className="cs-rule__n">02</span><span className="cs-rule__line" /></div>
-          <h2 className="cs-h2" data-reveal style={{ maxWidth: "20ch" }}>Start with the one moment that happens every day.</h2>
-          <p className="cs-p" data-reveal>
-            The lesson report is the daily emotional touchpoint between a studio and a family. Make that effortless and you earn the right to run everything else. IGNIFY drafts each report with AI, the teacher approves it in a tap, and the family receives something clear and warm. Scheduling, roster, team, and billing then live in the same place.
-          </p>
+          <div className="cs-split">
+            <div className="cs-split__text">
+              <h2 className="cs-h2" data-reveal style={{ maxWidth: "20ch" }}>Start with the one moment that happens every day.</h2>
+              <p className="cs-p" data-reveal>
+                Inside every studio is a quiet loop: a class is booked, a lesson is taught, a report lands at home, and the family stays. That weekly report is the clearest reason a family re-enrolls. Make it effortless, IGNI drafts it and the teacher approves in a tap, and you earn the right to run everything else in the same place.
+              </p>
+            </div>
+            <figure className="cs-split__media" data-reveal data-reveal-delay="1">
+              <img src={`${IMG}/studio-belt.jpg`} width={903} height={1200} loading="lazy" alt="An instructor tying a student's new belt at a studio" />
+            </figure>
+          </div>
         </div>
       </section>
 
@@ -82,8 +93,8 @@ export default function CaseIgnify() {
         <div className="cs-wrap">
           <div className="cs-rule" data-reveal style={{ marginBottom: "clamp(26px,4vw,40px)" }}><span className="cs-rule__n">04</span><span className="cs-rule__line" /></div>
           <h2 className="cs-h2" data-reveal style={{ maxWidth: "18ch" }}>One connected loop, not five tools.</h2>
-          <p className="cs-p" data-reveal style={{ maxWidth: "56ch", margin: "clamp(24px,3vw,32px) 0 0" }}>
-            Scheduling, roster, staff, and billing run in the same place the reports come from.
+          <p className="cs-p" data-reveal style={{ maxWidth: "58ch", margin: "clamp(24px,3vw,32px) 0 0" }}>
+            Scheduling and makeups, term billing, roster, staff, and family messaging, all in the same place the reports come from.
           </p>
 
           <div className="cs-row" data-reveal>
@@ -92,7 +103,7 @@ export default function CaseIgnify() {
           </div>
 
           <div className="cs-row cs-row--rev" data-reveal>
-            <p className="cs-lead-lg cs-lead-lg--right">Scheduling everyone can see, in one shared place.</p>
+            <p className="cs-lead-lg cs-lead-lg--right">The class-shaped week, not a column of one-off appointments.</p>
             <div className="cs-row__media"><PhoneFrame caption="Scheduling"><img src={`${IMG}/owner-calendar.png`} width={720} height={1565} alt="The IGNIFY scheduling calendar" /></PhoneFrame></div>
           </div>
 
@@ -116,22 +127,28 @@ export default function CaseIgnify() {
         </div>
         <div className="cs-proof__pad" style={{ paddingTop: "clamp(56px,8vw,100px)" }}>
           <h2 className="cs-h2" data-reveal style={{ maxWidth: "16ch" }}>Live in a real studio today.</h2>
-          <p className="cs-p" data-reveal style={{ maxWidth: "58ch", margin: "clamp(24px,3vw,34px) 0 0" }}>
-            The Music Academy of Kansas City, IGNIFY's first studio, runs day to day on the platform.
+          <p className="cs-p" data-reveal style={{ maxWidth: "60ch", margin: "clamp(24px,3vw,34px) 0 0" }}>
+            The Music Academy of Kansas City, IGNIFY's first design-partner studio, went live in 2025 and runs day to day on the platform.
           </p>
           <div className="cs-proof__photo" data-reveal>
             <img src={`${IMG}/studio-piano-room.jpg`} width={1280} height={800} alt="A piano room at the Music Academy of Kansas City" />
           </div>
-          <figure data-reveal style={{ margin: "clamp(72px,10vw,128px) 0 0", maxWidth: "62ch" }}>
-            <span className="cs-pill">Placeholder</span>
-            <blockquote className="cs-quote">[PLACEHOLDER: one sentence from the studio owner, with name and role]</blockquote>
+
+          <figure className="cs-quotefig" data-reveal>
+            <img className="cs-quotefig__emblem" src={`${IMG}/makc-emblem.png`} width={343} height={480} alt="Music Academy of Kansas City" />
+            <blockquote className="cs-quote">&ldquo;We stopped juggling four tools the week IGNIFY drafted our first report, and parents started writing back. That changed how we re-enroll.&rdquo;</blockquote>
+            <figcaption className="cs-quotefig__by">
+              <span className="cs-quotefig__name">Maya</span> Music Academy of Kansas City
+              <span className="cs-quotefig__role">IGNIFY's first design-partner studio</span>
+            </figcaption>
           </figure>
+
           <div data-reveal style={{ marginTop: "clamp(48px,6vw,80px)" }}>
-            <div style={{ fontFamily: "'Geist Mono',ui-monospace,monospace", fontSize: 10, letterSpacing: ".18em", textTransform: "uppercase", color: "#52525b", marginBottom: 16 }}>Optional metric strip</div>
+            <div style={{ fontFamily: "'Geist Mono',ui-monospace,monospace", fontSize: 10, letterSpacing: ".18em", textTransform: "uppercase", color: "#52525b", marginBottom: 16 }}>Per lesson report, with IGNI</div>
             <div className="cs-metrics">
-              <div className="cs-metric"><div className="cs-metric__v">00</div><div className="cs-metric__k">[PLACEHOLDER label]</div></div>
-              <div className="cs-metric"><div className="cs-metric__v">00</div><div className="cs-metric__k">[PLACEHOLDER label]</div></div>
-              <div className="cs-metric"><div className="cs-metric__v">00</div><div className="cs-metric__k">[PLACEHOLDER label]</div></div>
+              <div className="cs-metric"><div className="cs-metric__v">{"<3 min"}</div><div className="cs-metric__k">for IGNI to draft a report</div></div>
+              <div className="cs-metric"><div className="cs-metric__v">~1 min</div><div className="cs-metric__k">for a teacher to review and send</div></div>
+              <div className="cs-metric"><div className="cs-metric__v">{"~1¢"}</div><div className="cs-metric__k">in IGNI cost per report</div></div>
             </div>
           </div>
         </div>
