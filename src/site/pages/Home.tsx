@@ -71,11 +71,11 @@ export default function Home() {
                   <span className="tag tag--green">Live</span>
                 </div>
                 <p className="muted" style={{ fontSize: "var(--fs-sm)", marginTop: -4 }}>
-                  A full-stack SaaS platform built from zero: native mobile apps, real-time messaging and calling, a secure cloud backend, payments, and an admin console.
+                  The one calm system class-based studios run on: scheduling, billing, family messaging, and AI-drafted lesson reports. Designed and built end to end.
                 </p>
-                <div className="work-card__metric"><span className="v">6 surfaces</span><span className="k">shipped with a small senior team</span></div>
+                <div className="work-card__metric"><span className="v">Live 2025</span><span className="k">at the Music Academy of Kansas City</span></div>
                 <div className="work-card__foot">
-                  <div className="tags"><span className="tag">Mobile</span><span className="tag">Cloud</span><span className="tag">Real-time</span><span className="tag">Payments</span></div>
+                  <div className="tags"><span className="tag">Mobile</span><span className="tag">Cloud</span><span className="tag">AI</span><span className="tag">Payments</span></div>
                   <span className="link-arrow">Read case study <ArrowRight className="arrow" /></span>
                 </div>
               </div>
