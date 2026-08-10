@@ -116,7 +116,7 @@ function Calculator() {
           <div className="calc__nav">
             {i > 0 ? <button type="button" className="btn btn--ghost" onClick={prev}>Back</button> : <span />}
             <button type="button" className="btn btn--primary" onClick={next}>
-              {i === 4 ? "See my estimate" : "Next"} <ArrowRight className="arrow" />
+              {i === 4 ? "Request my estimate" : "Next"} <ArrowRight className="arrow" />
             </button>
           </div>
         </div>
@@ -146,7 +146,7 @@ function Calculator() {
           </div>
           <div className="calc__nav">
             <button type="button" className="btn btn--ghost" onClick={prev}>Back</button>
-            <button type="submit" className="btn btn--primary">{sending ? "Sending…" : "Get my estimate"}</button>
+            <button type="submit" className="btn btn--primary">{sending ? "Sending…" : "Request my estimate"}</button>
           </div>
           {sendErr && <p className="calc__hint" style={{ color: "var(--coral)", marginTop: 12 }}>{sendErr}</p>}
         </form>
@@ -318,7 +318,7 @@ export default function Contact() {
           </div>
           <div className="alt-contact" data-reveal data-reveal-delay="1">
             <a href="mailto:hello@garagol.com"><Mail size={16} /> hello@garagol.com</a>
-            <a href="#call"><Calendar size={16} /> Book a discovery call</a>
+            <a href="mailto:hello@garagol.com?subject=Discovery%20call%20request"><Calendar size={16} /> Request a discovery call</a>
             <a href="https://www.linkedin.com/company/garagol/" target="_blank" rel="noreferrer"><LinkedInIcon size={16} /> LinkedIn</a>
             <a href="https://www.upwork.com/agencies/1791289820464082944/" target="_blank" rel="noreferrer"><Briefcase size={16} /> Upwork</a>
           </div>

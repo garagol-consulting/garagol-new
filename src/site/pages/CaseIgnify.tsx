@@ -176,10 +176,10 @@ export default function CaseIgnify() {
       {/* ===== LIVE LINK + NEXT ===== */}
       <section style={{ padding: "clamp(72px,9vw,120px) clamp(24px,6vw,120px) clamp(96px,12vw,150px)" }}>
         <div className="cs-wrap">
-          <a className="cs-applink" href="/hero/mobile-app.html" target="_blank" rel="noopener">
-            Open the live app <span className="cs-applink__arrow">&#8599;</span>
+          <a className="cs-applink" href="https://ignify.us" target="_blank" rel="noopener">
+            Visit ignify.us <span className="cs-applink__arrow">&#8599;</span>
           </a>
-          <span className="cs-applink-note">the running platform</span>
+          <span className="cs-applink-note">IGNIFY's product site</span>
           <div className="cs-next">
             <Link to="/work" className="cs-next__big">Next project <span className="cs-arrow">&rarr;</span></Link>
             <Link to="/contact" className="cs-next__link">Start a project</Link>

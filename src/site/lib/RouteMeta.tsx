@@ -41,9 +41,9 @@ const PRICING_FAQ_LD = {
   mainEntity: (
     [
       ["How do you price?", "We scope each engagement to your goals and give you a clear, fixed plan up front. Fixed-scope projects are priced per milestone; ongoing work is a monthly rate for a dedicated senior team."],
-      ["How fast can we start?", "Usually within days. After a short discovery call we confirm scope, and you'll have a first working draft within a week of kick-off."],
+      ["How fast can we start?", "Usually within days. After a short discovery call we confirm scope in writing, and you'll see working drafts early in the engagement."],
       ["Who owns the IP?", "You do. Everything we create is yours: strategy, designs, content, code, and infrastructure, with full handover and documentation."],
-      ["Are there any hidden fees?", "No. Pricing is transparent and agreed before work begins. If scope changes, we discuss it with you first, never a surprise invoice."],
+      ["Are there any hidden fees?", "No. Pricing is agreed in writing before work begins. If scope changes, we discuss it with you first, never a surprise invoice."],
     ] as [string, string][]
   ).map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
 };
@@ -53,7 +53,7 @@ type Meta = { title: string; desc: string; ld?: object[] };
 const META: Record<string, Meta> = {
   "/": {
     title: "Garagol | Digital consultancy & studio. Strategy, brand, marketing & build.",
-    desc: "Garagol is a digital consultancy and studio. We advise and we build across strategy, brand, marketing, and engineering, taking ideas from plan to launch to growth. From startups to enterprise.",
+    desc: "Garagol is a digital consultancy and studio. We advise and we build across strategy, brand, marketing, and engineering, taking ideas from plan to launch to growth. For local businesses, startup founders, and growing companies.",
     ld: [WEBSITE_LD],
   },
   "/work": {
@@ -77,8 +77,8 @@ const META: Record<string, Meta> = {
     ld: [breadcrumb([["Home", "/"], ["About", "/about"]])],
   },
   "/pricing": {
-    title: "Pricing | Garagol. Simple, transparent engagements.",
-    desc: "Pick the way of working that fits: Launch, Scale, Secure & Optimize, or Enterprise. No hidden fees, ever. Price on request.",
+    title: "Pricing | Garagol. Engagements that fit how you work.",
+    desc: "Pick the way of working that fits: Launch, Scale, Secure & Optimize, or Enterprise. Every engagement scoped and priced in writing before work begins.",
     ld: [PRICING_FAQ_LD, breadcrumb([["Home", "/"], ["Pricing", "/pricing"]])],
   },
   "/contact": {

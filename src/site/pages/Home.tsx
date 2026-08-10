@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import {
-  ArrowRight, Landmark, Activity, Truck, ShoppingBag, Layers, Flame,
-  Compass, Palette, Megaphone, Code2, Zap, LifeBuoy, ShieldCheck,
+  ArrowRight, Compass, Palette, Megaphone, Code2, Zap, LifeBuoy, ShieldCheck,
   TrendingUp, BadgeDollarSign, Users,
 } from "lucide-react";
 import { useReveal } from "../lib/useReveal";
@@ -22,32 +21,23 @@ export default function Home() {
           <Rotor />
           <p className="hero__sub" data-hero>
             Garagol is a digital consultancy and studio. We help you plan, brand, market, and build,
-            taking ideas from strategy to launch to growth. From startups to enterprise.
+            taking ideas from strategy to launch to growth. For local businesses, startup founders, and growing companies.
           </p>
           <div className="hero__cta" data-hero>
             <Link to="/contact" className="btn btn--primary btn--lg">Start a project <ArrowRight className="arrow" /></Link>
             <Link to="/work" className="btn btn--ghost btn--lg">See our work</Link>
           </div>
-          <div className="hero__meta" data-hero>
-            <div><span className="n">40+</span><span className="l">Projects delivered</span></div>
-            <div><span className="n">4</span><span className="l">Disciplines, one team</span></div>
-            <div><span className="n">&lt; 2 hr</span><span className="l">Avg response</span></div>
-          </div>
         </div>
       </section>
 
-      {/* ===== TRUST BAR ===== */}
+      {/* ===== PROOF LINE ===== */}
       <section className="trust">
         <div className="wrap">
-          <div className="trust__label kicker" data-reveal>TRUSTED BY TEAMS ACROSS FINTECH, HEALTH, LOGISTICS &amp; CONSUMER</div>
-          <div className="trust__row" data-reveal data-reveal-delay="1">
-            <span className="client"><span className="client__dot"><Landmark /></span>NorthVault <span className="sector">fintech</span></span>
-            <span className="client"><span className="client__dot"><Activity /></span>Caduceus <span className="sector">health</span></span>
-            <span className="client"><span className="client__dot"><Truck /></span>Freightline <span className="sector">logistics</span></span>
-            <span className="client"><span className="client__dot"><ShoppingBag /></span>Lumen <span className="sector">consumer</span></span>
-            <span className="client"><span className="client__dot"><Layers /></span>Stackline <span className="sector">saas</span></span>
-            <span className="client"><span className="client__dot"><Flame /></span>IGNIFY <span className="sector">platform</span></span>
-          </div>
+          <div className="trust__label kicker" data-reveal>OUR PROOF</div>
+          <p className="lead" data-reveal data-reveal-delay="1" style={{ maxWidth: "64ch" }}>
+            IGNIFY, the platform we designed, built, and operate, runs the Music Academy of Kansas City every day.
+            Everything we claim on this site is held to that standard: real, checkable work.
+          </p>
         </div>
       </section>
 
@@ -81,29 +71,31 @@ export default function Home() {
               </div>
             </Link>
 
-            <Link to="/work" className="card card--hover work-card" data-reveal data-reveal-delay="1">
-              <div className="work-card__media">
-                <div className="mock"><div className="mock__bar"><i /><i /><i /></div><div className="mock__screen"><span className="mock__chip c1" /><span className="mock__chip c2" /><span className="mock__chip c3" /></div></div>
-                <span className="media-note">Project · Brand &amp; Web</span>
-              </div>
+            <a href="https://turkmen.biz" target="_blank" rel="noreferrer" className="card card--hover work-card" data-reveal data-reveal-delay="1">
               <div className="work-card__body">
-                <div className="work-card__top"><span className="work-card__title">Brand &amp; Web</span></div>
-                <div className="work-card__metric"><span className="v">[ result ]</span><span className="k">placeholder, add outcome</span></div>
-                <div className="work-card__foot"><div className="tags"><span className="tag">Brand</span><span className="tag">Web</span></div></div>
+                <div className="work-card__top"><span className="work-card__title">turkmen.biz</span><span className="tag tag--green">Live</span></div>
+                <p className="muted" style={{ fontSize: "var(--fs-sm)", marginTop: -4 }}>
+                  A business directory and marketplace for Turkmen businesses. Designed, built, and operated by Garagol.
+                </p>
+                <div className="work-card__foot">
+                  <div className="tags"><span className="tag">Web</span><span className="tag">Brand</span><span className="tag">Build</span></div>
+                  <span className="link-arrow">Visit live <ArrowRight className="arrow" /></span>
+                </div>
               </div>
-            </Link>
+            </a>
 
-            <Link to="/work" className="card card--hover work-card" data-reveal data-reveal-delay="2">
-              <div className="work-card__media">
-                <div className="mock"><div className="mock__bar"><i /><i /><i /></div><div className="mock__screen"><span className="mock__chip c1" /><span className="mock__chip c2" /><span className="mock__chip c3" /></div></div>
-                <span className="media-note">Project · Growth &amp; SEO</span>
-              </div>
+            <a href="https://www.garagol.com/midtec/" target="_blank" rel="noreferrer" className="card card--hover work-card" data-reveal data-reveal-delay="2">
               <div className="work-card__body">
-                <div className="work-card__top"><span className="work-card__title">Growth &amp; SEO</span></div>
-                <div className="work-card__metric"><span className="v">[ result ]</span><span className="k">placeholder, add outcome</span></div>
-                <div className="work-card__foot"><div className="tags"><span className="tag">Marketing</span><span className="tag">Strategy</span></div></div>
+                <div className="work-card__top"><span className="work-card__title">Midtec Associates</span><span className="tag">Concept</span></div>
+                <p className="muted" style={{ fontSize: "var(--fs-sm)", marginTop: -4 }}>
+                  A complete website redesign concept for an industrial equipment firm, live as a working draft.
+                </p>
+                <div className="work-card__foot">
+                  <div className="tags"><span className="tag">Brand</span><span className="tag">Web</span></div>
+                  <span className="link-arrow">View the draft <ArrowRight className="arrow" /></span>
+                </div>
               </div>
-            </Link>
+            </a>
           </div>
           <div style={{ marginTop: "var(--s4)" }} data-reveal>
             <Link to="/work" className="link-arrow">View all work <ArrowRight className="arrow" /></Link>
@@ -152,18 +144,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== METRICS ===== */}
-      <section className="section section--tight">
-        <div className="wrap">
-          <div className="metrics card" style={{ padding: "var(--s5) var(--s4)" }} data-reveal>
-            <div className="metric"><div className="metric__v"><span data-count="40">0</span><span className="suf">+</span></div><div className="metric__l">Projects delivered end-to-end</div></div>
-            <div className="metric"><div className="metric__v"><span data-count="4">0</span></div><div className="metric__l">Disciplines under one roof</div></div>
-            <div className="metric"><div className="metric__v"><span className="pre">&lt;</span><span data-count="1">0</span><span className="suf">&nbsp;wk</span></div><div className="metric__l">To a first working draft</div></div>
-            <div className="metric"><div className="metric__v"><span className="pre">&lt;</span><span data-count="2">0</span><span className="suf">&nbsp;hr</span></div><div className="metric__l">Average response time</div></div>
-          </div>
-        </div>
-      </section>
-
       {/* ===== PROCESS ===== */}
       <section className="section section--tight" id="process">
         <div className="wrap">
@@ -175,7 +155,7 @@ export default function Home() {
             <div className="step card" data-reveal><div className="step__n">01</div><div className="step__line" /><div className="step__title">Connect</div><div className="step__desc">Define your vision, challenges, and goals.</div></div>
             <div className="step card" data-reveal data-reveal-delay="1"><div className="step__n">02</div><div className="step__line" /><div className="step__title">Collaborate</div><div className="step__desc">Shape the strategy and design the solution.</div></div>
             <div className="step card" data-reveal data-reveal-delay="2"><div className="step__n">03</div><div className="step__line" /><div className="step__title">Create</div><div className="step__desc">Build, test, refine, and launch.</div></div>
-            <div className="step card" data-reveal data-reveal-delay="3"><div className="step__n">04</div><div className="step__line" /><div className="step__title">Grow</div><div className="step__desc">Optimize, market, and scale with 24/7 support.</div></div>
+            <div className="step card" data-reveal data-reveal-delay="3"><div className="step__n">04</div><div className="step__line" /><div className="step__title">Grow</div><div className="step__desc">Optimize, market, and scale with ongoing support.</div></div>
           </div>
         </div>
       </section>
@@ -191,36 +171,12 @@ export default function Home() {
             <h2 className="h2">Why teams choose Garagol.</h2>
           </div>
           <div className="bento bento--commit" style={{ marginTop: "var(--s5)" }}>
-            <div className="card card--hover commit-card" data-reveal><div className="card__icon"><Zap /></div><div className="commit-card__title">Fast Delivery</div><div className="commit-card__desc">A first working draft within a week of kick-off, so you see results sooner.</div></div>
+            <div className="card card--hover commit-card" data-reveal><div className="card__icon"><Zap /></div><div className="commit-card__title">Fast Momentum</div><div className="commit-card__desc">Working drafts early and often, so you see real progress from the first week.</div></div>
             <div className="card card--hover commit-card" data-reveal data-reveal-delay="1"><div className="card__icon"><LifeBuoy /></div><div className="commit-card__title">Ongoing Support</div><div className="commit-card__desc">For urgent issues, we aim to respond within roughly two hours.</div></div>
             <div className="card card--hover commit-card" data-reveal data-reveal-delay="2"><div className="card__icon"><ShieldCheck /></div><div className="commit-card__title">Secure &amp; Compliant</div><div className="commit-card__desc">We build security and compliance in from day one, across everything we deliver.</div></div>
             <div className="card card--hover commit-card" data-reveal><div className="card__icon"><TrendingUp /></div><div className="commit-card__title">Built to Scale</div><div className="commit-card__desc">Strategy and architecture so your solution grows along with your business.</div></div>
-            <div className="card card--hover commit-card" data-reveal data-reveal-delay="1"><div className="card__icon"><BadgeDollarSign /></div><div className="commit-card__title">Transparent Pricing</div><div className="commit-card__desc">Competitive global rates with no hidden fees or unexpected charges.</div></div>
+            <div className="card card--hover commit-card" data-reveal data-reveal-delay="1"><div className="card__icon"><BadgeDollarSign /></div><div className="commit-card__title">You Own the Work</div><div className="commit-card__desc">Strategy, designs, code, and infrastructure: everything we produce is yours, with full handover.</div></div>
             <div className="card card--hover commit-card" data-reveal data-reveal-delay="2"><div className="card__icon"><Users /></div><div className="commit-card__title">Expert Team</div><div className="commit-card__desc">Senior strategists, designers, marketers, and engineers delivering tailored work.</div></div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== TESTIMONIALS ===== */}
-      <section className="section section--tight">
-        <div className="wrap">
-          <div className="section-head" data-reveal>
-            <span className="kicker"><span className="num">05</span> · WHAT CLIENTS SAY</span>
-            <h2 className="h2">Results, in their words.</h2>
-          </div>
-          <div className="quotes" style={{ marginTop: "var(--s5)" }}>
-            <div className="card quote" data-reveal>
-              <p className="quote__text">"They shaped the strategy, designed the brand, and shipped the product faster than teams 3× their size. One team, start to finish."</p>
-              <div className="quote__person"><span className="quote__avatar">DK</span><div><div className="quote__name">[ Client name ]</div><div className="quote__role">CTO · [ Company ] · placeholder</div></div></div>
-            </div>
-            <div className="card quote" data-reveal data-reveal-delay="1">
-              <p className="quote__text">"From first call to launch, Garagol owned the hard parts (strategy, brand, build, growth) and kept us in the loop the entire way."</p>
-              <div className="quote__person"><span className="quote__avatar">MR</span><div><div className="quote__name">[ Client name ]</div><div className="quote__role">Founder · [ Company ] · placeholder</div></div></div>
-            </div>
-            <div className="card quote" data-reveal data-reveal-delay="2">
-              <p className="quote__text">"Senior people who actually deliver. Our results speak for themselves, and so does our roadmap velocity."</p>
-              <div className="quote__person"><span className="quote__avatar">AS</span><div><div className="quote__name">[ Client name ]</div><div className="quote__role">VP Eng · [ Company ] · placeholder</div></div></div>
-            </div>
           </div>
         </div>
       </section>
@@ -232,13 +188,13 @@ export default function Home() {
             <div className="glow glow--purple" />
             <span className="kicker" style={{ justifyContent: "center" }}>LET'S BUILD</span>
             <h2 className="h2" style={{ marginTop: 16 }}>Have a digital challenge? Let's scope it.</h2>
-            <p className="lead">Transparent scoping, a first draft within a week, and no hidden fees. Tell us what you're working on and we'll come back with a clear plan.</p>
+            <p className="lead">Scope agreed in writing, senior people doing the work, and you own everything we make. Tell us what you're working on and we'll come back with a clear plan.</p>
             <div className="cta-panel__btns">
               <Link to="/contact" className="btn btn--primary btn--lg">Start a project <ArrowRight className="arrow" /></Link>
-              <Link to="/contact#call" className="btn btn--ghost btn--lg">Book a discovery call</Link>
+              <a href="mailto:hello@garagol.com?subject=Discovery%20call%20request" className="btn btn--ghost btn--lg">Request a discovery call</a>
             </div>
             <div className="cta-panel__chips">
-              <span className="tag">Transparent scoping</span><span className="tag">First draft in a week</span><span className="tag">No hidden fees</span><span className="tag">You own everything</span>
+              <span className="tag">Scoped in writing</span><span className="tag">Senior team, no handoffs</span><span className="tag">You own everything</span>
             </div>
           </div>
         </div>

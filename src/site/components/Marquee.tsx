@@ -7,7 +7,7 @@ const ITEMS = [
   "Built to Scale",
   "Data-Driven",
   "End-to-End",
-  "24/7 Support",
+  "Ongoing Support",
 ];
 const KEY = "Garagol is built for business.";
 

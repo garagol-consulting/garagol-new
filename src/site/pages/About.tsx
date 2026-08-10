@@ -26,21 +26,20 @@ export default function About() {
             <p>Too many agencies sell decks and hand off templates, and too many studios build without a strategy behind it. We started Garagol to close that gap: one senior team that owns the thinking (positioning, brand, growth) and the making (design, product, engineering).</p>
             <p>Because we operate our own platform, we feel every decision our clients feel: the market, the message, the experience, uptime, cost, and the price of cutting corners. So strategy, craft, and security are built in from day one, not bolted on before launch.</p>
           </div>
-          <div className="story-visual" data-reveal data-reveal-delay="1"><span className="media-note">Team / studio photo</span></div>
+          <figure className="story-visual" data-reveal data-reveal-delay="1" style={{ overflow: "hidden" }}>
+            <img src="/case-studies/ignify/studio-piano-room.jpg" width={1280} height={800} loading="lazy" alt="The Music Academy of Kansas City, which runs on IGNIFY, the platform Garagol built and operates" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+          </figure>
         </div>
       </section>
 
       {/* TEAM */}
       <section className="section--tight">
         <div className="wrap">
-          <div className="section-head" data-reveal><span className="kicker">THE TEAM</span><h2 className="h2">Senior across four disciplines.</h2></div>
+          <div className="section-head" data-reveal><span className="kicker">WHO YOU WORK WITH</span><h2 className="h2">Founder-led, deliberately small.</h2></div>
           <div className="team-grid" style={{ marginTop: "var(--s5)" }}>
-            <div data-reveal><div className="member__photo">G</div><div className="member__name">[ Founder name ]</div><div className="member__role">Founder &amp; Strategy Lead</div><div className="member__exp">Positioning, product strategy, consulting.</div></div>
-            <div data-reveal data-reveal-delay="1"><div className="member__photo">S</div><div className="member__name">[ Name ]</div><div className="member__role">Brand &amp; Design Lead</div><div className="member__exp">Brand identity, product design, UI systems.</div></div>
-            <div data-reveal data-reveal-delay="2"><div className="member__photo">M</div><div className="member__name">[ Name ]</div><div className="member__role">Marketing &amp; Growth Lead</div><div className="member__exp">Campaigns, content, SEO, performance.</div></div>
-            <div data-reveal data-reveal-delay="3"><div className="member__photo">A</div><div className="member__name">[ Name ]</div><div className="member__role">Engineering Lead</div><div className="member__exp">Web, mobile, cloud, security, automation.</div></div>
+            <div data-reveal><div className="member__photo">A</div><div className="member__name">Allamyrat Tuyliyev</div><div className="member__role">Founder</div><div className="member__exp">The engineer-founder behind IGNIFY: strategy, product design, iOS and Android, the AWS backend, AI pipeline, and payments. He leads every Garagol engagement personally.</div></div>
           </div>
-          <p className="muted-3" style={{ fontSize: 13, marginTop: "var(--s3)" }} data-reveal>Team cards are placeholders: add real names, photos, and bios.</p>
+          <p className="muted-3" style={{ fontSize: 13, marginTop: "var(--s3)" }} data-reveal>Garagol stays deliberately small: senior work, no handoffs, and you always talk to the people doing the work.</p>
         </div>
       </section>
 
@@ -50,9 +49,9 @@ export default function About() {
           <div className="section-head" data-reveal><span className="kicker">HOW WE WORK</span><h2 className="h2">What we value.</h2></div>
           <div className="values-grid" style={{ marginTop: "var(--s5)" }}>
             <div className="card card--hover commit-card" data-reveal><div className="card__icon"><Award /></div><div className="commit-card__title">Quality</div><div className="commit-card__desc">Production-grade by default. Every deliverable reviewed.</div></div>
-            <div className="card card--hover commit-card" data-reveal data-reveal-delay="1"><div className="card__icon"><Zap /></div><div className="commit-card__title">Speed</div><div className="commit-card__desc">First draft within a week. Momentum from day one.</div></div>
+            <div className="card card--hover commit-card" data-reveal data-reveal-delay="1"><div className="card__icon"><Zap /></div><div className="commit-card__title">Speed</div><div className="commit-card__desc">Momentum from week one, with working drafts early and often.</div></div>
             <div className="card card--hover commit-card" data-reveal data-reveal-delay="2"><div className="card__icon"><ShieldCheck /></div><div className="commit-card__title">Strategy first</div><div className="commit-card__desc">We earn the build with the right plan behind it.</div></div>
-            <div className="card card--hover commit-card" data-reveal data-reveal-delay="3"><div className="card__icon"><BadgeDollarSign /></div><div className="commit-card__title">Transparency</div><div className="commit-card__desc">Clear scope, clear pricing, no hidden fees.</div></div>
+            <div className="card card--hover commit-card" data-reveal data-reveal-delay="3"><div className="card__icon"><BadgeDollarSign /></div><div className="commit-card__title">Transparency</div><div className="commit-card__desc">Scope and pricing agreed in writing before work begins.</div></div>
           </div>
         </div>
       </section>
@@ -69,7 +68,6 @@ export default function About() {
             <span className="badge"><Database /> Content &amp; SEO</span>
             <span className="badge"><Code /> Web &amp; Mobile Engineering</span>
             <span className="badge"><Cloud /> Cloud, Data &amp; AI</span>
-            <span className="muted-3" style={{ alignSelf: "center", fontSize: 13 }}>[ swap in real capabilities &amp; case studies ]</span>
           </div>
         </div>
       </section>
@@ -78,10 +76,9 @@ export default function About() {
       <section className="section--tight">
         <div className="wrap">
           <div className="metrics card" style={{ padding: "var(--s5) var(--s4)" }} data-reveal>
-            <div className="metric"><div className="metric__v"><span data-count="40">0</span><span className="suf">+</span></div><div className="metric__l">Projects delivered</div></div>
-            <div className="metric"><div className="metric__v"><span data-count="99.99">0</span><span className="suf">%</span></div><div className="metric__l">Platform uptime</div></div>
-            <div className="metric"><div className="metric__v"><span className="pre">&lt;</span><span data-count="1">0</span><span className="suf">&nbsp;wk</span></div><div className="metric__l">To first draft</div></div>
-            <div className="metric"><div className="metric__v"><span className="pre">&lt;</span><span data-count="2">0</span><span className="suf">&nbsp;hr</span></div><div className="metric__l">Avg response time</div></div>
+            <div className="metric"><div className="metric__v">2025</div><div className="metric__l">IGNIFY live in production</div></div>
+            <div className="metric"><div className="metric__v">99.99<span className="suf">%</span></div><div className="metric__l">Uptime across IGNIFY, the platform we operate</div></div>
+            <div className="metric"><div className="metric__v"><span className="pre">&lt;</span>2<span className="suf">&nbsp;hr</span></div><div className="metric__l">Avg reply during business hours</div></div>
           </div>
         </div>
       </section>

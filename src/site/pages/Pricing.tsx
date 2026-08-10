@@ -5,9 +5,9 @@ import { useReveal } from "../lib/useReveal";
 
 const FAQS = [
   { q: "How do you price?", a: "We scope each engagement to your goals and give you a clear, fixed plan up front. Fixed-scope work across strategy, brand, marketing, and build is priced per milestone; ongoing work is a monthly rate for a dedicated senior team. Run the estimate for a tailored number." },
-  { q: "How fast can we start?", a: "Usually within days. After a short discovery call we confirm scope, and you'll have a first working draft within a week of kick-off." },
+  { q: "How fast can we start?", a: "Usually within days. After a short discovery call we confirm scope in writing, and you'll see working drafts early in the engagement." },
   { q: "Who owns the IP?", a: "You do. Everything we create is yours (strategy, brand, designs, code, and infrastructure) with full handover and documentation." },
-  { q: "Are there any hidden fees?", a: "No. Pricing is transparent and agreed before work begins. If scope changes, we discuss it with you first, never a surprise invoice." },
+  { q: "Are there any hidden fees?", a: "No. Pricing is agreed in writing before work begins. If scope changes, we discuss it with you first, never a surprise invoice." },
 ];
 
 function FaqItem({ q, a }: { q: string; a: string }) {
@@ -34,9 +34,9 @@ export default function Pricing() {
         <div className="glow glow--purple" />
         <div className="wrap" style={{ textAlign: "center" }}>
           <span className="kicker" data-reveal style={{ justifyContent: "center" }}><span className="num">●</span> PRICING</span>
-          <h1 data-reveal style={{ marginInline: "auto" }}>Simple, transparent engagements.</h1>
+          <h1 data-reveal style={{ marginInline: "auto" }}>Engagements that fit how you work.</h1>
           <p className="lead" data-reveal data-reveal-delay="1" style={{ marginInline: "auto" }}>
-            Pick the way of working that fits, across strategy, brand, marketing, and build, with no hidden fees, ever. Want a number? Run the estimate and we'll tailor it.
+            Pick the way of working that fits, across strategy, brand, marketing, and build. Every engagement is scoped and priced in writing before work begins. Want a number? Request an estimate and we'll tailor one.
           </p>
         </div>
       </section>
@@ -99,9 +99,9 @@ export default function Pricing() {
           </div>
 
           <div className="reassure" style={{ marginTop: "var(--s4)" }} data-reveal>
-            <span><Check size={15} /> Transparent scoping</span>
-            <span><Check size={15} /> First draft within a week</span>
-            <span><Check size={15} /> No hidden fees</span>
+            <span><Check size={15} /> Scoped and priced in writing</span>
+            <span><Check size={15} /> Senior team, no handoffs</span>
+            <span><Check size={15} /> No surprise invoices</span>
             <span><Check size={15} /> You own everything we build</span>
           </div>
         </div>
