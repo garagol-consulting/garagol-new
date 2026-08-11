@@ -1,161 +1,121 @@
 import { Link } from "react-router-dom";
-import {
-  ArrowRight, Compass, Palette, Megaphone, Code2,
-  Workflow, Lightbulb, Telescope,
-  Brush, Layout, Monitor, Sparkles,
-  Search, TrendingUp, FileText, Share2, BarChart3,
-  Smartphone, Cloud, Database, ShieldCheck,
-} from "lucide-react";
-import { useReveal } from "../lib/useReveal";
+import { useRevealV3, useMagnet } from "../lib/v3fx";
+
+const FAQS: Array<[string, string]> = [
+  ["How do you price?", "Every engagement is scoped and priced in writing before work begins. Fixed-scope work is priced per milestone; ongoing work is a monthly rate. The floors above are real starting points, not teasers."],
+  ["How fast can we start?", "Usually within days. After a short call we confirm scope in writing, and you see working drafts early in the engagement."],
+  ["Who owns the IP?", "You do. Strategy, designs, content, code, and infrastructure: everything we create is yours, with full handover and documentation."],
+  ["Are there hidden fees?", "No. If scope changes, we discuss it with you first, never a surprise invoice."],
+];
 
 export default function Services() {
-  useReveal();
+  useRevealV3();
+  useMagnet();
   return (
-    <main>
-      <section className="page-hero">
-        <div className="glow glow--purple" />
-        <div className="wrap">
-          <span className="kicker" data-reveal><span className="num">02</span> : SERVICES</span>
-          <h1 data-reveal>We advise and we build, across everything digital.</h1>
-          <p className="lead" data-reveal data-reveal-delay="1">Four pillars, one senior team. A digital consultancy and studio that plans the strategy, shapes the brand, drives the growth, and engineers the product. Engage one pillar or all of them.</p>
-          <div className="hero__cta" style={{ marginTop: 28 }} data-reveal data-reveal-delay="2">
-            <Link to="/contact" className="btn btn--primary btn--lg">Start a project <ArrowRight className="arrow" /></Link>
-            <Link to="/pricing" className="btn btn--ghost btn--lg">See pricing</Link>
+    <main className="g3" id="main">
+      <header style={{ padding: "calc(68px + clamp(48px,9vh,110px)) var(--g3-gutter) clamp(32px,5vh,56px)" }}>
+        <h1 className="g3-wp-h1" data-rv="0">Services<span className="g3-dot">.</span></h1>
+        <p data-rv="80" style={{ margin: "24px 0 0", fontSize: "clamp(16px,1.5vw,20px)", color: "var(--g3-mist)", maxWidth: "56ch", lineHeight: 1.5 }}>
+          Three ways in, each priced with a real floor and backed by live proof. Scope and price agreed in writing before work begins.
+        </p>
+      </header>
+
+      {/* ===== THREE WAYS IN (bone) ===== */}
+      <section className="g3-bone g3-section">
+        <div className="g3-bone__head">
+          <div className="g3-label" data-rv="0">Three ways in</div>
+          <div className="g3-label" data-rv="0">Floors, not surprises</div>
+        </div>
+        <div style={{ marginTop: 28 }}>
+          <div className="g3-offer" data-rv="0" style={{ cursor: "default" }}>
+            <span className="g3-offer__name">Start from zero</span>
+            <div className="g3-offer__desc">
+              A website and an app for your business, designed, built, and shipped end to end.
+              <ul className="g3-offer__ul">
+                <li>Strategy, scoping, and a written plan</li>
+                <li>Brand, UI, and product design</li>
+                <li>The build: web, iOS and Android, cloud</li>
+                <li>Launch, handover, and the option to have us operate it</li>
+              </ul>
+              <span className="g3-evidence">Live · IGNIFY, built for IGNIFY Inc.</span>
+            </div>
+            <span className="g3-price">from $12,000</span>
+          </div>
+          <div className="g3-offer" data-rv="60" style={{ cursor: "default" }}>
+            <span className="g3-offer__name">Launch your platform</span>
+            <div className="g3-offer__desc">
+              You bring the idea. We design and build the web platform around it.
+              <ul className="g3-offer__ul">
+                <li>Product definition and honest scoping</li>
+                <li>Design that fits the audience, not a template</li>
+                <li>The web app, built and shipped</li>
+                <li>Operate and iterate after launch</li>
+              </ul>
+              <span className="g3-evidence">Live · turkmen.biz</span>
+            </div>
+            <span className="g3-price">from $7,500</span>
+          </div>
+          <div className="g3-offer" data-rv="120" style={{ cursor: "default" }}>
+            <span className="g3-offer__name">Fix what you have</span>
+            <div className="g3-offer__desc">
+              A site you're not proud of, redesigned and modernized without losing what works.
+              <ul className="g3-offer__ul">
+                <li>Audit of what you run today</li>
+                <li>Redesign and rebuild</li>
+                <li>Speed, SEO, and security baked in</li>
+                <li>Ongoing care from $3,000/mo</li>
+              </ul>
+              <span className="g3-evidence">Live · midtec.com</span>
+            </div>
+            <span className="g3-price">from $5,000</span>
           </div>
         </div>
       </section>
 
-      <section>
-        <div className="wrap">
-          {/* STRATEGY */}
-          <div className="pillar" id="strategy">
-            <div className="pillar__head" data-reveal>
-              <div className="pillar__icon"><Compass /></div>
-              <span className="kicker"><span className="num">01</span></span>
-              <h2 className="pillar__title">Strategy &amp; Consulting</h2>
-              <p className="pillar__promise">Plan your digital future with confidence.</p>
-              <Link to="/work" className="link-arrow" style={{ marginTop: 18 }}>Relevant work <ArrowRight className="arrow" /></Link>
-            </div>
-            <div className="pillar__cols" data-reveal data-reveal-delay="1">
-              <div className="pillar__block">
-                <h4>What we do</h4>
-                <ul className="svc-list">
-                  <li><Compass /> Digital Strategy</li>
-                  <li><Workflow /> Digital Transformation</li>
-                  <li><Lightbulb /> IT Consulting</li>
-                  <li><Telescope /> Discovery &amp; Roadmapping</li>
-                </ul>
-              </div>
-              <div className="pillar__block">
-                <h4>Typical deliverables</h4>
-                <div className="deliverables"><span className="tag">Digital roadmap</span><span className="tag">Tech strategy</span><span className="tag">Discovery report</span><span className="tag">Opportunity audit</span><span className="tag">Transformation plan</span></div>
-              </div>
-            </div>
+      {/* ===== PRACTICES ===== */}
+      <section className="g3-section" style={{ paddingBottom: "clamp(40px,6vh,64px)" }}>
+        <div className="g3-label g3-section-label" data-rv="0">Also on the bench</div>
+        <div>
+          <div className="g3-practice" data-rv="0">
+            <h3>Cybersecurity consulting</h3>
+            <p>Assessments, hardening, MFA and SSO baselines, and practical fixes, led by a working security engineer. Scoped per engagement.</p>
           </div>
-          {/* BRAND */}
-          <div className="pillar" id="brand">
-            <div className="pillar__head" data-reveal>
-              <div className="pillar__icon"><Palette /></div>
-              <span className="kicker"><span className="num">02</span></span>
-              <h2 className="pillar__title">Brand &amp; Design</h2>
-              <p className="pillar__promise">Look the part, everywhere you show up.</p>
-              <Link to="/work" className="link-arrow" style={{ marginTop: 18 }}>Relevant work <ArrowRight className="arrow" /></Link>
-            </div>
-            <div className="pillar__cols" data-reveal data-reveal-delay="1">
-              <div className="pillar__block">
-                <h4>What we do</h4>
-                <ul className="svc-list">
-                  <li><Brush /> Brand Identity</li>
-                  <li><Layout /> UI/UX Design</li>
-                  <li><Monitor /> Web Design</li>
-                  <li><Sparkles /> Creative</li>
-                </ul>
-              </div>
-              <div className="pillar__block">
-                <h4>Typical deliverables</h4>
-                <div className="deliverables"><span className="tag">Brand kit</span><span className="tag">Design system</span><span className="tag">Website design</span><span className="tag">Product UI</span><span className="tag">Creative assets</span></div>
-              </div>
-            </div>
+          <div className="g3-practice" data-rv="0">
+            <h3>Growth marketing</h3>
+            <p>Social and search growth for local businesses: content, campaigns, and the analytics to know what worked.</p>
           </div>
-          {/* MARKETING */}
-          <div className="pillar" id="marketing">
-            <div className="pillar__head" data-reveal>
-              <div className="pillar__icon"><Megaphone /></div>
-              <span className="kicker"><span className="num">03</span></span>
-              <h2 className="pillar__title">Marketing &amp; Growth</h2>
-              <p className="pillar__promise">Get found, and grow.</p>
-              <Link to="/work" className="link-arrow" style={{ marginTop: 18 }}>Relevant work <ArrowRight className="arrow" /></Link>
-            </div>
-            <div className="pillar__cols" data-reveal data-reveal-delay="1">
-              <div className="pillar__block">
-                <h4>What we do</h4>
-                <ul className="svc-list">
-                  <li><Search /> SEO</li>
-                  <li><TrendingUp /> Digital Marketing</li>
-                  <li><FileText /> Content</li>
-                  <li><Share2 /> Social</li>
-                  <li><BarChart3 /> Analytics</li>
-                </ul>
-              </div>
-              <div className="pillar__block">
-                <h4>Typical deliverables</h4>
-                <div className="deliverables"><span className="tag">SEO audit</span><span className="tag">Campaign plan</span><span className="tag">Content calendar</span><span className="tag">Social strategy</span><span className="tag">Growth dashboards</span></div>
-              </div>
-            </div>
-          </div>
-          {/* BUILD */}
-          <div className="pillar" id="build">
-            <div className="pillar__head" data-reveal>
-              <div className="pillar__icon"><Code2 /></div>
-              <span className="kicker"><span className="num">04</span></span>
-              <h2 className="pillar__title">Build &amp; Engineering</h2>
-              <p className="pillar__promise">Ship secure, scalable products.</p>
-              <Link to="/work" className="link-arrow" style={{ marginTop: 18 }}>Relevant work <ArrowRight className="arrow" /></Link>
-            </div>
-            <div className="pillar__cols" data-reveal data-reveal-delay="1">
-              <div className="pillar__block">
-                <h4>What we do</h4>
-                <ul className="svc-list">
-                  <li><Smartphone /> Web &amp; Mobile Development</li>
-                  <li><Cloud /> Cloud &amp; DevOps</li>
-                  <li><Database /> Data &amp; AI</li>
-                  <li><ShieldCheck /> Cybersecurity</li>
-                </ul>
-              </div>
-              <div className="pillar__block">
-                <h4>Typical deliverables</h4>
-                <div className="deliverables"><span className="tag">Web app</span><span className="tag">iOS &amp; Android apps</span><span className="tag">Cloud infrastructure</span><span className="tag">Data &amp; AI pipeline</span><span className="tag">Security audit</span></div>
-              </div>
-            </div>
+          <div className="g3-practice" data-rv="0" style={{ borderBottom: "1px solid var(--g3-line)" }}>
+            <h3>Startup advisory</h3>
+            <p>Working sessions for founders shaping an idea into a plan: scope, stack, cost, and the honest version of what it takes.</p>
           </div>
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section className="section" id="process">
-        <div className="wrap">
-          <div className="section-head" data-reveal>
-            <span className="kicker"><span className="num">03</span> : HOW WE WORK</span>
-            <h2 className="h2">Efficient steps, measurable results.</h2>
-          </div>
-          <div className="steps" style={{ marginTop: "var(--s5)" }}>
-            <div className="step card" data-reveal><div className="step__n">01</div><div className="step__line" /><div className="step__title">Connect</div><div className="step__desc">Define your vision, challenges, and goals.</div></div>
-            <div className="step card" data-reveal data-reveal-delay="1"><div className="step__n">02</div><div className="step__line" /><div className="step__title">Collaborate</div><div className="step__desc">Shape the strategy, brand, and solution together.</div></div>
-            <div className="step card" data-reveal data-reveal-delay="2"><div className="step__n">03</div><div className="step__line" /><div className="step__title">Create</div><div className="step__desc">Design, build, and launch seamlessly.</div></div>
-            <div className="step card" data-reveal data-reveal-delay="3"><div className="step__n">04</div><div className="step__line" /><div className="step__title">Grow</div><div className="step__desc">Measure, optimize, and scale with ongoing support.</div></div>
-          </div>
+      {/* ===== FAQ ===== */}
+      <section className="g3-section" style={{ paddingTop: 0 }}>
+        <div className="g3-label g3-section-label" data-rv="0">Good questions</div>
+        <div>
+          {FAQS.map(([q, a]) => (
+            <div className="g3-faq" data-rv="0" key={q}>
+              <strong>{q}</strong>
+              <p>{a}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div className="wrap">
-          <div className="cta-panel" data-reveal>
-            <div className="glow glow--purple" />
-            <h2 className="h2">Not sure which you need?</h2>
-            <p className="lead">Run the 5-question estimate and we will map the right mix of strategy, design, marketing, and engineering to your goals. Free, no commitment.</p>
-            <div className="cta-panel__btns"><Link to="/contact#estimate" className="btn btn--primary btn--lg">Get an estimate <ArrowRight className="arrow" /></Link><Link to="/contact" className="btn btn--ghost btn--lg">Talk to us</Link></div>
-          </div>
-        </div>
+      {/* ===== CLOSE ===== */}
+      <section className="g3-ctagrid" style={{ borderTop: "1px solid var(--g3-line)" }}>
+        <a href="https://calendly.com/allamyrat/30min" target="_blank" rel="noreferrer">
+          <span className="g3-label">Talk</span>
+          <strong>Book a 30-min call <span>↗</span></strong>
+          <p>Thirty minutes with the founder, not a sales team.</p>
+        </a>
+        <Link to="/contact#estimate">
+          <span className="g3-label">Scope</span>
+          <strong>Request an estimate <span>→</span></strong>
+          <p>Tell us the situation; you get a floor, not a surprise.</p>
+        </Link>
       </section>
     </main>
   );

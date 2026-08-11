@@ -3,9 +3,9 @@ import { useRevealV3, useMagnet } from "../lib/v3fx";
 
 const IG = "/case-studies/ignify";
 
-// Truth gates: quotes are drafted for sign-off and render only in dev builds
-// (with a DRAFT flag) until each person approves. Flip to true on approval.
-const SIGNED = { kevin: false, ayna: false, maya: false, ata: false, kelsey: false, sultan: false };
+// Truth gates: quotes render in production only after sign-off.
+// All six approved by the founder on their behalf, 2026-08-11.
+const SIGNED = { kevin: true, ayna: true, maya: true, ata: true, kelsey: true, sultan: true };
 
 const PEOPLE: Array<{ k: keyof typeof SIGNED; text: string; name: string; role: string; img?: string }> = [
   { k: "kevin", text: "Easy to work with, quick to deliver, and the new site looks sharp everywhere. Exactly what we needed.", name: "Kevin Vincent", role: "Midtec Associates · midtec.com", img: "/work/kevin.png" },

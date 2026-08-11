@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { Check, ArrowRight, Clock, Mail, Calendar, Briefcase } from "lucide-react";
+import { Check, ArrowRight, Clock, Mail, Calendar } from "lucide-react";
 import { useReveal } from "../lib/useReveal";
 import { LinkedInIcon } from "../SocialIcons";
 
@@ -280,48 +280,74 @@ function SmartForm() {
   );
 }
 
+/* ---------------- Calendly inline embed (official widget) ---------------- */
+function CalendlyEmbed() {
+  useEffect(() => {
+    const s = document.createElement("script");
+    s.src = "https://assets.calendly.com/assets/external/widget.js";
+    s.async = true;
+    document.body.appendChild(s);
+    return () => { document.body.removeChild(s); };
+  }, []);
+  return (
+    <div
+      className="calendly-inline-widget"
+      data-url="https://calendly.com/allamyrat/30min?hide_gdpr_banner=1"
+      style={{ minWidth: 320, height: 680 }}
+    />
+  );
+}
+
 /* ---------------- Page ---------------- */
 export default function Contact() {
   useReveal();
   return (
-    <main>
-      <section className="page-hero" style={{ paddingBottom: "var(--s4)" }}>
-        <div className="glow glow--purple" />
-        <div className="wrap">
-          <span className="kicker" data-reveal><span className="num">●</span> START A PROJECT</span>
-          <h1 data-reveal>Let's scope what you're building.</h1>
-          <p className="lead" data-reveal data-reveal-delay="1">
-            Three ways in: book a 30-minute call, get a tailored estimate in five quick questions, or send a quick inquiry. Either way, we reply within ~2 hours during business hours.
-          </p>
+    <main className="g3" id="main">
+      <header style={{ padding: "calc(68px + clamp(48px,9vh,110px)) var(--g3-gutter) clamp(24px,4vh,40px)" }}>
+        <h1 className="g3-wp-h1" data-reveal>Contact<span className="g3-dot">.</span></h1>
+        <p data-reveal data-reveal-delay="1" style={{ margin: "24px 0 0", fontSize: "clamp(16px,1.5vw,20px)", color: "var(--g3-mist)", maxWidth: "54ch", lineHeight: 1.5 }}>
+          Book a 30-minute call, request a tailored estimate, or send a note. Either way, we reply within
+          ~2 hours during business hours.
+        </p>
+      </header>
+
+      {/* ===== BOOK ===== */}
+      <section className="g3-section g3-section--line" id="call" style={{ paddingTop: "clamp(36px,5vh,56px)", paddingBottom: "clamp(36px,5vh,56px)" }}>
+        <div className="g3-label g3-section-label" data-reveal style={{ marginBottom: 0 }}>Book · 30 minutes with the founder</div>
+        <div className="g3-calendly" data-reveal>
+          <CalendlyEmbed />
         </div>
+        <p data-reveal style={{ margin: "14px 0 0", fontSize: 13, color: "var(--g3-mist-deep)" }}>
+          Calendar not loading?{" "}
+          <a className="g3-action" href="https://calendly.com/allamyrat/30min" target="_blank" rel="noreferrer" style={{ fontSize: 13 }}>
+            Open Calendly directly ↗
+          </a>
+        </p>
       </section>
 
-      <section className="section--tight" id="estimate" style={{ paddingTop: "var(--s4)" }}>
-        <div className="wrap"><Calculator /></div>
+      {/* ===== ESTIMATE ===== */}
+      <section className="g3-section g3-section--line" id="estimate" style={{ paddingTop: "clamp(36px,5vh,56px)", paddingBottom: "clamp(36px,5vh,56px)" }}>
+        <div className="g3-label g3-section-label" data-reveal>Or request an estimate · five quick questions</div>
+        <Calculator />
       </section>
 
-      <section className="section--tight" id="inquiry">
-        <div className="wrap">
-          <div className="section-head" data-reveal>
-            <span className="kicker">OR · QUICK INQUIRY</span>
-            <h2 className="h2">How can we help?</h2>
-            <p className="lead">Tell us what you're interested in and we'll tailor the conversation.</p>
-          </div>
-          <SmartForm />
-        </div>
+      {/* ===== NOTE ===== */}
+      <section className="g3-section g3-section--line" id="inquiry" style={{ paddingTop: "clamp(36px,5vh,56px)", paddingBottom: "clamp(36px,5vh,56px)" }}>
+        <div className="g3-label g3-section-label" data-reveal>Or send a note</div>
+        <SmartForm />
       </section>
 
-      <section className="section--tight" id="call" style={{ paddingBottom: "var(--section-y)" }}>
-        <div className="wrap">
-          <div className="reassure" data-reveal style={{ justifyContent: "flex-start" }}>
-            <span><Clock size={15} /> We reply within ~2 hours during business hours.</span>
-          </div>
-          <div className="alt-contact" data-reveal data-reveal-delay="1">
-            <a href="mailto:hello@garagol.com"><Mail size={16} /> hello@garagol.com</a>
-            <a href="https://calendly.com/allamyrat/30min" target="_blank" rel="noreferrer"><Calendar size={16} /> Book a 30-min call</a>
-            <a href="https://www.linkedin.com/company/garagol/" target="_blank" rel="noreferrer"><LinkedInIcon size={16} /> LinkedIn</a>
-            <a href="https://www.upwork.com/agencies/1791289820464082944/" target="_blank" rel="noreferrer"><Briefcase size={16} /> Upwork</a>
-          </div>
+      {/* ===== DIRECT ===== */}
+      <section style={{ padding: "0 var(--g3-gutter) var(--g3-section)" }}>
+        <div
+          data-reveal
+          style={{ display: "flex", flexWrap: "wrap", gap: "14px 28px", alignItems: "center", borderTop: "1px solid var(--g3-line)", paddingTop: "clamp(24px,4vh,36px)", color: "var(--g3-mist)", fontSize: 14.5 }}
+        >
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}><Clock size={15} /> We reply within ~2 hours during business hours.</span>
+          <a className="g3-action" href="mailto:hello@garagol.com" style={{ display: "inline-flex", alignItems: "center", gap: 8 }}><Mail size={15} /> hello@garagol.com</a>
+          <a className="g3-action" href="https://calendly.com/allamyrat/30min" target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8 }}><Calendar size={15} /> Book a 30-min call</a>
+          <a className="g3-action" href="https://www.linkedin.com/company/garagol/" target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 8 }}><LinkedInIcon size={15} /> LinkedIn</a>
+          <span style={{ color: "var(--g3-mist-deep)" }}>Dallas / Fort Worth, Texas</span>
         </div>
       </section>
     </main>

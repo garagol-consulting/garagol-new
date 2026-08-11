@@ -5,7 +5,6 @@ import Work from "./site/pages/Work";
 import CaseIgnify from "./site/pages/CaseIgnify";
 import Services from "./site/pages/Services";
 import About from "./site/pages/About";
-import Pricing from "./site/pages/Pricing";
 import Contact from "./site/pages/Contact";
 
 export const routes: RouteRecord[] = [
@@ -18,7 +17,7 @@ export const routes: RouteRecord[] = [
       { path: "work/ignify", element: <CaseIgnify /> },
       { path: "services", element: <Services /> },
       { path: "about", element: <About /> },
-      { path: "pricing", element: <Pricing /> },
+      { path: "pricing", element: <Services /> },
       { path: "contact", element: <Contact /> },
       { path: "*", element: <Home /> },
     ],

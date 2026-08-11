@@ -4,8 +4,8 @@ import { useRevealV3, useMagnet } from "../lib/v3fx";
 
 const IG = "/case-studies/ignify";
 
-// Truth gate: unsigned quotes never render in production builds.
-const KEVIN_SIGNED = false;
+// Truth gate: quotes render in production only after sign-off (approved 2026-08-11).
+const KEVIN_SIGNED = true;
 
 export default function Home() {
   useRevealV3();

@@ -479,6 +479,44 @@
   font-size: 12px; color: var(--g3-mist-deep);
 }
 
+/* ---- Legacy form components (Calculator/SmartForm), re-skinned inside v3 ---- */
+.g3 .input, .g3 .textarea, .g3 select, .g3 .select {
+  background: var(--g3-lake-800); border: 1px solid var(--g3-line);
+  border-radius: 0; color: var(--g3-foam);
+}
+.g3 .input:focus, .g3 .textarea:focus { border-color: var(--g3-brass-500); outline: none; box-shadow: none; }
+.g3 .btn { border-radius: 0; }
+.g3 .btn--primary { background: var(--g3-brass-500); color: var(--g3-lake-900); box-shadow: none; }
+.g3 .btn--primary:hover { background: var(--g3-brass-300); color: var(--g3-lake-900); }
+.g3 .btn--ghost { background: transparent; border: 1px solid rgba(233, 231, 225, 0.3); color: var(--g3-foam); }
+.g3 .btn--ghost:hover { border-color: var(--g3-brass-300); color: var(--g3-brass-300); }
+.g3 .card, .g3 .calc, .g3 .panel { background: var(--g3-lake-950); border: 1px solid var(--g3-line); border-radius: 0; box-shadow: none; }
+.g3 .chip, .g3 .fchip, .g3 .tag { border-radius: 0; }
+.g3 .chip.is-active, .g3 .fchip.is-active { border-color: var(--g3-brass-500); color: var(--g3-brass-300); background: rgba(194, 162, 75, 0.08); }
+.g3 .kicker { color: var(--g3-brass-500); }
+.g3 .link-arrow { color: var(--g3-brass-300); }
+.g3 .calc__seg { border-radius: 0; }
+.g3 .calc__seg.is-done { background: var(--g3-brass-500); }
+.g3 .calc__step { color: var(--g3-brass-500); }
+.g3 .opt__box { border-radius: 0; }
+.g3 .opt.is-selected { border-color: var(--g3-brass-500); }
+.g3 .opt.is-selected .opt__box { background: var(--g3-brass-500); color: var(--g3-lake-900); border-color: var(--g3-brass-500); }
+.g3 .ok { background: var(--g3-brass-500); color: var(--g3-lake-900); border-radius: 0; }
+
+/* Calendly inline embed */
+.g3-calendly { border: 1px solid var(--g3-line); background: #fff; margin-top: 26px; }
+.g3-calendly iframe { display: block; width: 100%; height: 680px; border: 0; }
+
+/* Offer bullets (Services) */
+.g3-offer__ul { margin: 12px 0 0; padding: 0; list-style: none; font-size: 14px; color: #4A4E53; line-height: 1.75; }
+.g3-offer__ul li::before { content: "· "; color: var(--g3-brass-700); font-weight: 700; }
+
+/* FAQ rows */
+.g3-faq { border-top: 1px solid var(--g3-line); padding: clamp(20px, 3vh, 30px) 0; display: grid; grid-template-columns: minmax(200px, 1fr) 2fr; gap: 20px; }
+.g3-faq strong { font-size: clamp(18px, 1.8vw, 24px); font-weight: 800; letter-spacing: -0.01em; }
+.g3-faq p { margin: 0; color: var(--g3-mist); font-size: 15px; line-height: 1.6; max-width: 60ch; }
+@media (max-width: 720px) { .g3-faq { grid-template-columns: 1fr; gap: 8px; } }
+
 /* ---- Reveal (JS adds transforms; content visible without JS) ---- */
 @media (prefers-reduced-motion: reduce) {
   .g3 *, .g3 *::before, .g3 *::after { animation: none !important; transition: none !important; }
