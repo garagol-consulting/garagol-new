@@ -7,6 +7,7 @@
 @import "./styles/home.css";
 @import "./styles/pages.css";
 @import "./styles/ignify.css";
+@import "./styles/v3.css";
 
 /* Mirror core tokens into Tailwind's theme so utilities (bg-bg, text-t1, font-mono…)
    resolve to the same values if a component prefers utilities over the ported classes. */

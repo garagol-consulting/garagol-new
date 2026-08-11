@@ -52,7 +52,7 @@ type Meta = { title: string; desc: string; ld?: object[] };
 
 const META: Record<string, Meta> = {
   "/": {
-    title: "Garagol | Digital consultancy & studio. Strategy, brand, marketing & build.",
+    title: "Garagol Consulting & Solutions | We design and build the software your business runs on.",
     desc: "Garagol is a digital consultancy and studio. We advise and we build across strategy, brand, marketing, and engineering, taking ideas from plan to launch to growth. For local businesses, startup founders, and growing companies.",
     ld: [WEBSITE_LD],
   },
