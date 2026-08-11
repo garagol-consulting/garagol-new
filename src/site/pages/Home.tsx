@@ -37,19 +37,25 @@ export default function Home() {
       {/* ===== PROOF, FIRST ===== */}
       <section className="g3-section g3-section--line" style={{ paddingBottom: "clamp(48px,7vh,80px)" }}>
         <div className="g3-label g3-section-label" data-rv="0">Proof, first</div>
-        <div className="g3-proof">
-          <div data-rv="0">
-            <p>IGNIFY, our own SaaS product, runs its first customer studio, the Music Academy of Kansas City, every day. We built it, and we operate it.</p>
-            <a className="g3-evidence g3-evidence--lead" href="https://ignify.us" target="_blank" rel="noreferrer">Live · ignify.us ↗</a>
+        <div className="g3-proofwrap">
+          <div className="g3-prooflist">
+            <div data-rv="0">
+              <p>IGNIFY Incorporated hired us to design, build, and operate their studio platform end to end: apps, website, cloud, AI, and payments.</p>
+              <a className="g3-evidence g3-evidence--lead" href="https://ignify.us" target="_blank" rel="noreferrer">Live · ignify.us ↗</a>
+            </div>
+            <div data-rv="80">
+              <p>15+ projects shipped across 6 industries since 2024.</p>
+              <a className="g3-evidence" href="https://www.linkedin.com/company/garagol/" target="_blank" rel="noreferrer">Source · LinkedIn ↗</a>
+            </div>
+            <div data-rv="160">
+              <p>Founded and led by a working security engineer: Security Engineer IV at a Fortune-500 retailer. Security is built in, not bolted on.</p>
+              <Link className="g3-evidence" to="/about">Meet the founder →</Link>
+            </div>
           </div>
-          <div data-rv="80">
-            <p>15+ projects shipped across 6 industries since 2024.</p>
-            <a className="g3-evidence" href="https://www.linkedin.com/company/garagol/" target="_blank" rel="noreferrer">Source · LinkedIn ↗</a>
-          </div>
-          <div data-rv="160">
-            <p>Founded and led by a working security engineer: Security Engineer IV at a Fortune-500 retailer. Security is built in, not bolted on.</p>
-            <Link className="g3-evidence" to="/about">Meet the founder →</Link>
-          </div>
+          <figure className="g3-prooffig" data-rv="120">
+            <img src={`${IG}/studio-music-class.jpg`} alt="A class in session at the Music Academy of Kansas City" loading="lazy" width={1280} height={720} />
+            <figcaption>A class at the Music Academy of Kansas City, running day to day on the platform we built and operate.</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -60,47 +66,45 @@ export default function Home() {
           <Link to="/work" className="g3-action">All work →</Link>
         </div>
         <div className="g3-workgrid">
-          <Link to="/work/ignify" className="g3-card g3-card--flag" data-rv="0">
-            <span className="g3-stack" aria-hidden="true">
-              <img src={`${IG}/hero-teacher-review.png`} alt="" loading="lazy" width={362} height={787} />
-              <img src={`${IG}/owner-dashboard.png`} alt="" loading="lazy" width={340} height={739} />
-              <img src={`${IG}/family-report.png`} alt="" loading="lazy" width={340} height={739} />
-            </span>
-            <span className="g3-card__scrim" aria-hidden="true" />
-            <span className="g3-card__body">
-              <span className="g3-card__kicker">Our product · SaaS · Live 2025</span>
-              <span className="g3-card__title">IGNIFY</span>
-              <span className="g3-card__desc">
-                Our studio-management platform: scheduling, billing, family messaging, and AI lesson reports.
-                Live every day at its first customer studio, the Music Academy of Kansas City.
+          <Link to="/work/ignify" className="g3-card g3-card--split" data-rv="0">
+            <span className="g3-card__media g3-card__media--tall" aria-hidden="true" style={{ background: "var(--g3-lake-950)" }}>
+              <span className="g3-stack">
+                <img src={`${IG}/hero-teacher-review.png`} alt="" loading="lazy" width={362} height={787} />
+                <img src={`${IG}/owner-dashboard.png`} alt="" loading="lazy" width={340} height={739} />
+                <img src={`${IG}/family-report.png`} alt="" loading="lazy" width={340} height={739} />
               </span>
+            </span>
+            <span className="g3-card__caption">
+              <span className="g3-card__kicker">Client build · IGNIFY Incorporated · Live 2025</span>
+              <span className="g3-card__title">
+                <img src="/work/ignify-logo-white.png" alt="IGNIFY" style={{ height: 20, width: "auto", background: "none", padding: 0 }} />
+              </span>
+              <span className="g3-card__desc">Studio-management SaaS we designed, built, and operate: apps, web console, AI reports, payments.</span>
             </span>
           </Link>
-          <div className="g3-workgrid__side">
-            <a href="https://midtec.com" target="_blank" rel="noreferrer" className="g3-card g3-card--split" data-rv="80">
-              <span className="g3-card__media" aria-hidden="true">
-                <img src="/work/midtec-shot.jpg" alt="" loading="lazy" width={1600} height={1000} />
+          <a href="https://midtec.com" target="_blank" rel="noreferrer" className="g3-card g3-card--split" data-rv="80">
+            <span className="g3-card__media g3-card__media--tall" aria-hidden="true">
+              <img src="/work/midtec-shot.jpg" alt="" loading="lazy" width={1600} height={1000} />
+            </span>
+            <span className="g3-card__caption">
+              <span className="g3-card__kicker">Client redesign · Live at midtec.com ↗</span>
+              <span className="g3-card__title">Midtec Associates</span>
+              <span className="g3-card__desc">Complete website redesign for a manufacturers' rep serving Mid-America since 1977.</span>
+            </span>
+          </a>
+          <a href="https://turkmen.biz" target="_blank" rel="noreferrer" className="g3-card g3-card--split" data-rv="160">
+            <span className="g3-card__media g3-card__media--tall" aria-hidden="true">
+              <img src="/work/turkmenbiz-shot.jpg" alt="" loading="lazy" width={1600} height={1000} />
+            </span>
+            <span className="g3-card__caption">
+              <span className="g3-card__kicker">Our venture · Live ↗</span>
+              <span className="g3-card__title">
+                <img src="/work/turkmenbiz-logo.png" alt="" width={26} height={26} />
+                turkmen.biz
               </span>
-              <span className="g3-card__caption">
-                <span className="g3-card__kicker">Client redesign · Live at midtec.com ↗</span>
-                <span className="g3-card__title">Midtec Associates</span>
-                <span className="g3-card__desc">Complete website redesign for a manufacturers' rep serving Mid-America since 1977.</span>
-              </span>
-            </a>
-            <a href="https://turkmen.biz" target="_blank" rel="noreferrer" className="g3-card g3-card--split" data-rv="160">
-              <span className="g3-card__media" aria-hidden="true">
-                <img src="/work/turkmenbiz-shot.jpg" alt="" loading="lazy" width={1600} height={1000} />
-              </span>
-              <span className="g3-card__caption">
-                <span className="g3-card__kicker">Our venture · Live ↗</span>
-                <span className="g3-card__title">
-                  <img src="/work/turkmenbiz-logo.png" alt="" width={26} height={26} />
-                  turkmen.biz
-                </span>
-                <span className="g3-card__desc">A multilingual directory and marketplace we design, build, and operate.</span>
-              </span>
-            </a>
-          </div>
+              <span className="g3-card__desc">A multilingual directory and marketplace we design, build, and operate.</span>
+            </span>
+          </a>
         </div>
       </section>
 
@@ -116,7 +120,7 @@ export default function Home() {
             <span className="g3-offer__desc">
               A website and an app, designed, built, and shipped end to end.
               <br />
-              <span className="g3-evidence">Live · IGNIFY, since 2025</span>
+              <span className="g3-evidence">Live · IGNIFY, built for IGNIFY Inc.</span>
             </span>
             <span className="g3-price">from $12,000 →</span>
           </Link>

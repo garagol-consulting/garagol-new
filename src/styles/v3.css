@@ -217,10 +217,19 @@
 }
 .g3-section-label { color: var(--g3-brass-500); margin-bottom: 40px; }
 
-/* ---- Proof strip ---- */
-.g3-proof { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0; border-left: 1px solid var(--g3-line); }
-.g3-proof > div { padding: 8px 32px 8px 28px; border-right: 1px solid var(--g3-line); }
-.g3-proof p { margin: 0 0 18px; font-size: clamp(18px, 1.6vw, 22px); line-height: 1.45; font-weight: 500; }
+/* ---- Proof strip: statements + one real photograph ---- */
+.g3-proofwrap { display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(28px, 4vw, 64px); align-items: stretch; }
+.g3-prooflist > div { padding: 24px 0; border-top: 1px solid var(--g3-line); }
+.g3-prooflist > div:first-child { border-top: 0; padding-top: 0; }
+.g3-prooflist p { margin: 0 0 14px; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.5; font-weight: 500; max-width: 56ch; }
+.g3-prooffig { position: relative; overflow: hidden; border: 1px solid var(--g3-line); min-height: 320px; margin: 0; }
+.g3-prooffig img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(0.9); }
+.g3-prooffig figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 40px 18px 14px; font-size: 12.5px; line-height: 1.5; color: var(--g3-foam);
+  background: linear-gradient(transparent, rgba(7, 9, 10, 0.88));
+}
+@media (max-width: 880px) { .g3-proofwrap { grid-template-columns: 1fr; } .g3-prooffig { min-height: 240px; } }
 
 /* ---- Work teaser ---- */
 .g3-workhead {
@@ -228,12 +237,9 @@
   margin-bottom: 36px; border-top: 1px solid var(--g3-line); padding-top: 28px;
 }
 .g3-workhead h2 { margin: 0; font-size: clamp(38px, 4.6vw, 68px); font-weight: 800; letter-spacing: -0.02em; }
-.g3-workgrid { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
-.g3-workgrid__side { display: grid; grid-template-rows: 1fr 1fr; gap: 16px; min-height: clamp(360px, 52vh, 560px); }
-@media (max-width: 960px) {
-  .g3-workgrid { grid-template-columns: 1fr; }
-  .g3-workgrid__side { min-height: auto; grid-template-rows: minmax(220px, 1fr) minmax(220px, 1fr); }
-}
+.g3-workgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 960px) { .g3-workgrid { grid-template-columns: 1fr; } }
+.g3-card__media--tall { min-height: 250px; }
 .g3-card {
   position: relative; display: block; overflow: hidden;
   border: 1px solid var(--g3-line);
@@ -300,6 +306,69 @@
   .g3-stack img:nth-child(2) { width: 40%; left: 58%; }
   .g3-stack img:nth-child(3) { display: none; }
 }
+
+/* ---- Work page: rows, shelf, practices ---- */
+.g3-wp-h1 { margin: 0; font-size: clamp(56px, 9vw, 140px); font-weight: 800; letter-spacing: -0.025em; line-height: 0.95; }
+.g3-row {
+  display: grid; grid-template-columns: 1.15fr 1fr;
+  gap: clamp(24px, 3.5vw, 56px);
+  border-top: 1px solid var(--g3-line);
+  padding: clamp(32px, 5vh, 56px) 0;
+  align-items: center;
+}
+.g3-row--rev .g3-row__media { order: 2; }
+.g3-row__media { position: relative; overflow: hidden; border: 1px solid var(--g3-line); min-height: clamp(250px, 38vh, 430px); }
+.g3-row__media > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: left top; filter: saturate(0.9); }
+.g3-row__media--empty { display: flex; align-items: center; justify-content: center; background: var(--g3-lake-800); }
+.g3-row__num { font-weight: 700; font-size: 13px; color: var(--g3-brass-500); letter-spacing: 0.04em; }
+.g3-row__title { font-size: clamp(28px, 3.2vw, 44px); font-weight: 800; letter-spacing: -0.02em; margin: 10px 0 0; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.g3-row__title img { height: 24px; width: auto; }
+.g3-row__body { margin: 14px 0 0; font-size: 15.5px; color: var(--g3-mist); line-height: 1.55; max-width: 54ch; }
+.g3-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+.g3-chip { font-weight: 500; font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--g3-mist); border: 1px solid rgba(233, 231, 225, 0.18); padding: 6px 10px; }
+.g3-subrow { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 11px 0; border-top: 1px solid var(--g3-line-soft); font-size: 14.5px; color: var(--g3-mist); }
+.g3-subrow strong { color: var(--g3-foam); font-weight: 600; }
+.g3-miniquote {
+  margin: 20px 0 0; padding-left: 16px; border-left: 2px solid var(--g3-brass-500);
+  font-family: var(--g3-serif); font-style: italic; font-size: 16.5px; line-height: 1.5; color: var(--g3-foam);
+}
+.g3-miniquote cite { display: block; margin-top: 8px; font-family: var(--g3-display); font-style: normal; font-size: 12.5px; color: var(--g3-mist); }
+
+.g3-shelf { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 28px; }
+.g3-shelfcard { border: 1px solid var(--g3-line); padding: 22px; background: var(--g3-lake-950); display: flex; flex-direction: column; gap: 10px; min-height: 150px; }
+.g3-shelfcard strong { font-size: 19px; font-weight: 700; }
+.g3-shelfcard p { margin: 0; font-size: 13.5px; color: var(--g3-mist); line-height: 1.5; flex: 1; }
+.g3-status { font-weight: 700; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--g3-brass-500); }
+
+.g3-practice { border-top: 1px solid var(--g3-line); padding: clamp(24px, 4vh, 40px) 0; display: grid; grid-template-columns: 1fr 1.2fr; gap: 24px; align-items: baseline; }
+.g3-practice h3 { margin: 0; font-size: clamp(24px, 2.6vw, 38px); font-weight: 800; letter-spacing: -0.015em; }
+.g3-practice p { margin: 0; font-size: 15px; color: var(--g3-mist); line-height: 1.55; max-width: 56ch; }
+@media (max-width: 800px) {
+  .g3-row { grid-template-columns: 1fr; }
+  .g3-row--rev .g3-row__media { order: 0; }
+  .g3-practice { grid-template-columns: 1fr; }
+}
+
+/* ---- About: founder + big typographic values ---- */
+.g3-founder { display: grid; grid-template-columns: minmax(190px, 270px) 1fr; gap: clamp(28px, 4vw, 64px); align-items: start; }
+.g3-founder figure { margin: 0; }
+.g3-founder figure img { width: 100%; height: auto; border: 1px solid var(--g3-line); filter: saturate(0.92); }
+.g3-founder figcaption { margin-top: 10px; font-size: 13px; color: var(--g3-mist); line-height: 1.5; }
+.g3-founder h2 { margin: 0; font-size: clamp(26px, 2.8vw, 40px); font-weight: 800; letter-spacing: -0.015em; line-height: 1.08; }
+.g3-founder p { font-size: 16.5px; color: var(--g3-mist); line-height: 1.65; margin: 18px 0 0; max-width: 62ch; }
+@media (max-width: 760px) { .g3-founder { grid-template-columns: 1fr; } .g3-founder figure { max-width: 240px; } }
+
+.g3-vals { border-top: 1px solid var(--g3-line); }
+.g3-val { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; padding: clamp(22px, 4vh, 38px) 0; border-bottom: 1px solid var(--g3-line); }
+.g3-val strong { font-size: clamp(40px, 5.6vw, 84px); font-weight: 800; letter-spacing: -0.025em; line-height: 1; transition: color 0.25s ease; }
+.g3-val span { font-size: 15px; color: var(--g3-mist); max-width: 38ch; text-align: right; line-height: 1.55; }
+.g3-val:hover strong { color: var(--g3-brass-300); }
+@media (max-width: 700px) { .g3-val { flex-direction: column; gap: 8px; } .g3-val span { text-align: left; } }
+
+.g3-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); border-top: 1px solid var(--g3-line); border-bottom: 1px solid var(--g3-line); }
+.g3-stat { padding: clamp(28px, 4vh, 44px) clamp(18px, 2.6vw, 34px); border-right: 1px solid var(--g3-line-soft); }
+.g3-stat strong { display: block; font-size: clamp(30px, 3vw, 44px); font-weight: 800; }
+.g3-stat span { display: block; font-size: 14px; color: var(--g3-mist); margin-top: 4px; line-height: 1.45; }
 
 /* ---- Offers (the bone surface) ---- */
 .g3-bone { background: var(--g3-bone); color: var(--g3-ink); }

@@ -60,7 +60,6 @@ export default function LakeHero({ children }: { children: ReactNode }) {
     <header className="g3-hero" ref={hostRef}>
       <div className="g3-hero__poster" aria-hidden="true" />
       <canvas className="g3-hero__canvas" ref={canvasRef} aria-hidden="true" />
-      <div className="g3-hero__horizon" aria-hidden="true" />
       {children}
     </header>
   );

@@ -1,97 +1,88 @@
-import { Link } from "react-router-dom";
-import {
-  Award, Zap, ShieldCheck, BadgeDollarSign, Cloud, Smartphone,
-  Database, Code, MessageCircle, ArrowRight,
-} from "lucide-react";
-import { useReveal } from "../lib/useReveal";
+import { useRevealV3, useMagnet } from "../lib/v3fx";
+
+const VALUES: Array<[string, string]> = [
+  ["Quality.", "Production-grade by default. Every deliverable reviewed before you see it."],
+  ["Momentum.", "Working drafts early and often. You see real progress from the first week."],
+  ["Strategy first.", "We earn the build with the right plan behind it, never the other way around."],
+  ["Straight talk.", "Scope and pricing in writing before work begins. No surprise invoices, ever."],
+];
 
 export default function About() {
-  useReveal();
+  useRevealV3();
+  useMagnet();
   return (
-    <main>
-      <section className="page-hero">
-        <div className="glow glow--purple" />
-        <div className="wrap">
-          <span className="kicker" data-reveal><span className="num">●</span> ABOUT GARAGOL</span>
-          <h1 className="about-statement" data-reveal style={{ marginTop: 18 }}>Garagol is a digital consultancy and studio. We <span className="text-purple">advise and we build</span> across everything digital.</h1>
-          <p className="lead" data-reveal data-reveal-delay="1" style={{ marginTop: 24 }}>We're a senior team of strategists, designers, marketers, and engineers. We help ambitious brands set direction and then deliver it: strategy, brand and design, marketing and growth, product and engineering. We know it works because we build and run our own SaaS platform, IGNIFY.</p>
-        </div>
-      </section>
+    <main className="g3" id="main">
+      <header style={{ padding: "calc(68px + clamp(48px,9vh,110px)) var(--g3-gutter) clamp(40px,7vh,72px)" }}>
+        <h1 data-rv="0" style={{ margin: 0, fontSize: "clamp(44px,6.8vw,108px)", fontWeight: 800, letterSpacing: "-0.025em", lineHeight: 0.98, maxWidth: "16ch" }}>
+          You talk to the people <em className="g3-serif-em">doing the work</em><span className="g3-dot">.</span>
+        </h1>
+      </header>
 
-      {/* STORY */}
-      <section className="section--tight">
-        <div className="wrap story-grid">
-          <div data-reveal>
-            <span className="kicker" style={{ marginBottom: 14, display: "inline-flex" }}>WHY WE EXIST</span>
-            <p>Too many agencies sell decks and hand off templates, and too many studios build without a strategy behind it. We started Garagol to close that gap: one senior team that owns the thinking (positioning, brand, growth) and the making (design, product, engineering).</p>
-            <p>Because we operate our own platform, we feel every decision our clients feel: the market, the message, the experience, uptime, cost, and the price of cutting corners. So strategy, craft, and security are built in from day one, not bolted on before launch.</p>
-          </div>
-          <figure className="story-visual" data-reveal data-reveal-delay="1" style={{ overflow: "hidden" }}>
-            <img src="/case-studies/ignify/studio-piano-room.jpg" width={1280} height={800} loading="lazy" alt="The Music Academy of Kansas City, which runs on IGNIFY, the platform Garagol built and operates" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+      {/* ===== A TEAM, FOUNDER-LED ===== */}
+      <section style={{ padding: "0 var(--g3-gutter) var(--g3-section)" }}>
+        <div className="g3-founder">
+          <figure data-rv="0">
+            <img src="/team/allamyrat.jpg" alt="Allamyrat Tuyliyev" width={480} height={480} />
+            <figcaption>Allamyrat Tuyliyev · Founder &amp; Principal Consultant</figcaption>
           </figure>
-        </div>
-      </section>
-
-      {/* TEAM */}
-      <section className="section--tight">
-        <div className="wrap">
-          <div className="section-head" data-reveal><span className="kicker">WHO YOU WORK WITH</span><h2 className="h2">Founder-led, deliberately small.</h2></div>
-          <div className="team-grid" style={{ marginTop: "var(--s5)" }}>
-            <div data-reveal><div className="member__photo">A</div><div className="member__name">Allamyrat Tuyliyev</div><div className="member__role">Founder &amp; Principal Consultant</div><div className="member__exp">Security engineer by trade (MSc in Cyber Intelligence, a decade across financial services, retail, and education) and the engineer-founder behind IGNIFY: strategy, product design, iOS and Android, AWS backend, AI pipeline, and payments. He leads every engagement personally.</div></div>
-          </div>
-          <p className="muted-3" style={{ fontSize: 13, marginTop: "var(--s3)" }} data-reveal>Garagol Consulting &amp; Solutions is based in Dallas / Fort Worth, Texas, and works everywhere. Deliberately small: senior work, no handoffs, and you always talk to the people doing the work.</p>
-        </div>
-      </section>
-
-      {/* VALUES */}
-      <section className="section--tight">
-        <div className="wrap">
-          <div className="section-head" data-reveal><span className="kicker">HOW WE WORK</span><h2 className="h2">What we value.</h2></div>
-          <div className="values-grid" style={{ marginTop: "var(--s5)" }}>
-            <div className="card card--hover commit-card" data-reveal><div className="card__icon"><Award /></div><div className="commit-card__title">Quality</div><div className="commit-card__desc">Production-grade by default. Every deliverable reviewed.</div></div>
-            <div className="card card--hover commit-card" data-reveal data-reveal-delay="1"><div className="card__icon"><Zap /></div><div className="commit-card__title">Speed</div><div className="commit-card__desc">Momentum from week one, with working drafts early and often.</div></div>
-            <div className="card card--hover commit-card" data-reveal data-reveal-delay="2"><div className="card__icon"><ShieldCheck /></div><div className="commit-card__title">Strategy first</div><div className="commit-card__desc">We earn the build with the right plan behind it.</div></div>
-            <div className="card card--hover commit-card" data-reveal data-reveal-delay="3"><div className="card__icon"><BadgeDollarSign /></div><div className="commit-card__title">Transparency</div><div className="commit-card__desc">Scope and pricing agreed in writing before work begins.</div></div>
-          </div>
-        </div>
-      </section>
-
-      {/* EXPERTISE */}
-      <section className="section--tight">
-        <div className="wrap">
-          <div className="section-head" data-reveal><span className="kicker">EXPERTISE &amp; CAPABILITIES</span><h2 className="h2">What we do.</h2></div>
-          <div className="badges" style={{ marginTop: "var(--s4)" }} data-reveal data-reveal-delay="1">
-            <span className="badge"><Award /> Strategy &amp; Consulting</span>
-            <span className="badge"><MessageCircle /> Brand &amp; Identity</span>
-            <span className="badge"><Smartphone /> Product &amp; UX Design</span>
-            <span className="badge"><Zap /> Marketing &amp; Growth</span>
-            <span className="badge"><Database /> Content &amp; SEO</span>
-            <span className="badge"><Code /> Web &amp; Mobile Engineering</span>
-            <span className="badge"><Cloud /> Cloud, Data &amp; AI</span>
+          <div>
+            <h2 data-rv="0">A small senior team, led by the founder on every engagement.</h2>
+            <p data-rv="50">
+              Garagol Consulting &amp; Solutions is deliberately small: a founder who leads every project
+              personally, with senior collaborators across design, engineering, and growth brought in per
+              engagement. No sales layer, no junior bench, no handoffs. The person who scopes your work
+              is the person who ships it.
+            </p>
+            <p data-rv="80">
+              Allamyrat is a security engineer by trade: Security Engineer IV at a Fortune-500 retailer,
+              with an MSc in Cyber Intelligence and a decade across financial services, retail, and
+              education. That day job is why security is built into Garagol's work, not bolted on.
+            </p>
+            <p data-rv="110">
+              He built the Music Academy of Kansas City's original secure systems, founded Garagol in
+              2024, and led the end-to-end build of IGNIFY for IGNIFY Incorporated: the apps, the site,
+              the cloud, the AI pipeline, and the payments, all still operated by this team today.
+            </p>
+            <div className="g3-chips" data-rv="140">
+              <span className="g3-chip">Turkmen</span><span className="g3-chip">Russian</span><span className="g3-chip">English</span><span className="g3-chip">German</span>
+            </div>
+            <div style={{ marginTop: 24 }} data-rv="170">
+              <a className="g3-evidence" href="https://www.linkedin.com/in/allamyrat/" target="_blank" rel="noreferrer">Source · LinkedIn ↗</a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="section--tight">
-        <div className="wrap">
-          <div className="metrics card" style={{ padding: "var(--s5) var(--s4)" }} data-reveal>
-            <div className="metric"><div className="metric__v">15+</div><div className="metric__l">Projects across 6 industries</div></div>
-            <div className="metric"><div className="metric__v">2025</div><div className="metric__l">IGNIFY live in production</div></div>
-            <div className="metric"><div className="metric__v">99.99<span className="suf">%</span></div><div className="metric__l">Uptime across IGNIFY, the platform we operate</div></div>
-            <div className="metric"><div className="metric__v"><span className="pre">&lt;</span>2<span className="suf">&nbsp;hr</span></div><div className="metric__l">Avg reply during business hours</div></div>
-          </div>
+      {/* ===== NUMBERS THAT SURVIVE "SHOW ME" ===== */}
+      <section style={{ padding: "0 var(--g3-gutter)" }}>
+        <div className="g3-stats" data-rv="0">
+          <div className="g3-stat"><strong>15+</strong><span>projects across 6 industries</span></div>
+          <div className="g3-stat"><strong>2025</strong><span>IGNIFY live at a real academy since</span></div>
+          <div className="g3-stat"><strong>99.99%</strong><span>uptime on the platform we operate</span></div>
+          <div className="g3-stat"><strong>&lt;2hr</strong><span>replies during business hours</span></div>
         </div>
       </section>
 
-      <section className="section" style={{ paddingTop: "var(--s5)" }}>
-        <div className="wrap">
-          <div className="cta-panel" data-reveal>
-            <div className="glow glow--purple" />
-            <h2 className="h2">Work with a team that advises and builds.</h2>
-            <p className="lead">Tell us what you're working on. We'll bring senior strategy, design, marketing, and engineering to the table from the first call.</p>
-            <div className="cta-panel__btns"><Link to="/contact" className="btn btn--primary btn--lg">Start a project <ArrowRight className="arrow" /></Link><Link to="/work" className="btn btn--ghost btn--lg">See our work</Link></div>
-          </div>
+      {/* ===== WHAT WE VALUE, AT SCALE ===== */}
+      <section className="g3-section">
+        <div className="g3-label g3-section-label" data-rv="0">What we value</div>
+        <div className="g3-vals">
+          {VALUES.map(([word, line], i) => (
+            <div className="g3-val" data-rv={i * 60} key={word}>
+              <strong>{word}</strong>
+              <span>{line}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ===== CLOSE ===== */}
+      <section style={{ padding: "0 var(--g3-gutter) var(--g3-section)" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 24, flexWrap: "wrap", borderTop: "1px solid var(--g3-line)", paddingTop: "clamp(32px,5vh,48px)" }} data-rv="0">
+          <h2 style={{ margin: 0, fontSize: "clamp(26px,3vw,44px)", fontWeight: 800, letterSpacing: "-0.015em", maxWidth: "24ch" }}>
+            Thirty minutes with the founder, not a sales team<span className="g3-dot">.</span>
+          </h2>
+          <a href="https://calendly.com/allamyrat/30min" target="_blank" rel="noreferrer" className="g3-btn" data-magnet>Book a 30-min call</a>
         </div>
       </section>
     </main>
