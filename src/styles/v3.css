@@ -91,7 +91,7 @@
 .g3-btn {
   display: inline-block;
   background: var(--g3-cta);
-  color: var(--g3-lake-900);
+  color: #000;
   font-family: var(--g3-display);
   font-weight: 700;
   font-size: 15px;
@@ -100,7 +100,9 @@
   cursor: pointer;
   transition: background .2s ease, transform .25s cubic-bezier(.22,.61,.36,1);
 }
-.g3-btn:hover { background: var(--g3-cta-hover); color: var(--g3-lake-900); }
+/* Anchor buttons need (0,2,1) to beat `.g3 a { color: inherit }` (0,1,1) */
+.g3 a.g3-btn { color: #000; }
+.g3-btn:hover, .g3 a.g3-btn:hover { background: var(--g3-cta-hover); color: #000; }
 .g3-btn:active { transform: scale(0.97); }
 .g3-btn--ghost {
   background: transparent;
@@ -109,7 +111,8 @@
   font-weight: 600;
   padding: 15px 26px;
 }
-.g3-btn--ghost:hover { background: transparent; border-color: var(--g3-brass-300); color: var(--g3-brass-300); }
+.g3-btn--ghost, .g3 a.g3-btn--ghost { color: var(--g3-foam); }
+.g3-btn--ghost:hover, .g3 a.g3-btn--ghost:hover { background: transparent; border-color: var(--g3-brass-300); color: var(--g3-brass-300); }
 .g3-btn--sm { font-size: 13px; padding: 10px 18px; }
 .g3 :focus-visible { outline: 2px solid var(--g3-brass-300); outline-offset: 3px; }
 
@@ -293,6 +296,85 @@
 /* Category grids on /work */
 .g3-catgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 26px; }
 @media (min-width: 1100px) { .g3-catgrid--2 { grid-template-columns: 1fr 1fr; } }
+
+/* ---- Interactive device showcases (Work: mobile + web apps) ----
+   The device mock is absolutely positioned against the SECTION (.g3-showsec),
+   so it can bleed past the viewport edge and get clipped there. The grid's
+   second/first column is just a spacer reserving room for the visible peek. */
+.g3-showsec { position: relative; overflow: hidden; }
+.g3-devshow { display: grid; gap: clamp(28px, 4vw, 72px); margin-top: 6px; }
+.g3-devshow--phone {
+  grid-template-columns: minmax(0, 1fr) clamp(170px, 14vw, 240px);
+  min-height: clamp(500px, 48vw, 660px);
+}
+.g3-devshow--browser {
+  grid-template-columns: clamp(320px, 36vw, 600px) minmax(0, 1fr);
+  min-height: clamp(380px, 30vw, 520px);
+}
+.g3-devshow--browser .g3-devshow__list { grid-column: 2; grid-row: 1; }
+.g3-devshow--browser .g3-devshow__stage { grid-column: 1; grid-row: 1; }
+
+.g3-devshow__list { min-width: 0; align-self: start; }
+.g3-devshow__row { position: relative; border-top: 1px solid var(--g3-line); opacity: .42; transition: opacity .3s ease; }
+.g3-devshow__row:last-child { border-bottom: 1px solid var(--g3-line); }
+.g3-devshow__row.is-on { opacity: 1; }
+.g3-devshow__hit {
+  display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: baseline;
+  width: 100%; text-align: left; background: none; border: 0; color: inherit;
+  font: inherit; cursor: pointer; padding: clamp(18px, 3vh, 28px) 0;
+}
+.g3-devshow__num { font-weight: 700; font-size: 12px; color: var(--g3-mist-deep); letter-spacing: .06em; transition: color .3s ease; }
+.g3-devshow__row.is-on .g3-devshow__num { color: var(--g3-brass-500); }
+.g3-devshow__meta { min-width: 0; }
+.g3-devshow__meta .g3-card__kicker { margin-bottom: 10px; }
+.g3-devshow__name { display: block; font-size: clamp(24px, 2.7vw, 40px); font-weight: 800; letter-spacing: -0.015em; line-height: 1.02; color: var(--g3-foam); }
+.g3-devshow__desc { display: block; margin-top: 9px; font-size: 14.5px; line-height: 1.5; color: var(--g3-mist); max-width: 48ch; }
+.g3-devshow__link { display: block; margin: -8px 0 22px 54px; }
+
+.g3-devshow__device { position: absolute; background: var(--g3-lake-950); }
+.g3-devshow--phone .g3-devshow__device {
+  bottom: calc(clamp(300px, 26vw, 430px) * -0.32);
+  right: calc(clamp(300px, 26vw, 430px) * -0.45);
+  width: clamp(300px, 26vw, 430px);
+  aspect-ratio: 9 / 19.4;
+  border: 8px solid var(--g3-lake-950);
+  outline: 1px solid rgba(233, 231, 225, 0.22);
+  box-sizing: border-box;
+}
+.g3-devshow--browser .g3-devshow__device {
+  top: clamp(88px, 12vh, 140px);
+  left: calc(clamp(640px, 58vw, 960px) * -0.38);
+  width: clamp(640px, 58vw, 960px);
+  border: 1px solid rgba(233, 231, 225, 0.2);
+}
+.g3-devshow__bar { display: flex; align-items: center; gap: 7px; height: 38px; padding: 0 16px; border-bottom: 1px solid var(--g3-line); }
+/* Desktop: 38% of the frame hangs off the left edge, so start the bar content at the visible edge */
+.g3-devshow--browser .g3-devshow__bar { padding-left: calc(clamp(640px, 58vw, 960px) * 0.38 + 18px); }
+.g3-devshow__bar i { width: 7px; height: 7px; background: rgba(233, 231, 225, 0.2); }
+.g3-devshow__bar span { margin-left: 10px; font-weight: 700; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--g3-mist-deep); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.g3-devshow__screen { position: relative; overflow: hidden; }
+.g3-devshow--phone .g3-devshow__screen { position: absolute; inset: 0; }
+.g3-devshow--browser .g3-devshow__screen { aspect-ratio: 16 / 10; }
+.g3-devshow__screen img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  opacity: 0; transform: translateY(14px);
+  transition: opacity .3s ease, transform .5s cubic-bezier(.22, 1, .36, 1);
+}
+.g3-devshow__screen img.is-on { opacity: 1; transform: none; }
+
+@media (max-width: 940px) {
+  .g3-devshow--phone, .g3-devshow--browser { grid-template-columns: 1fr; min-height: 0; gap: 10px; }
+  .g3-devshow--browser .g3-devshow__list, .g3-devshow--browser .g3-devshow__stage { grid-column: auto; grid-row: auto; }
+  .g3-devshow__stage { order: -1; position: relative; overflow: hidden; }
+  .g3-devshow--phone .g3-devshow__stage { height: min(110vw, 480px); }
+  .g3-devshow--phone .g3-devshow__device {
+    bottom: auto; top: 0; right: auto; left: 50%; transform: translateX(-50%);
+    width: min(62vw, 300px);
+  }
+  .g3-devshow--browser .g3-devshow__device { position: relative; top: 0; left: 0; width: 100%; margin-bottom: 14px; }
+  .g3-devshow--browser .g3-devshow__bar { padding-left: 16px; }
+}
 
 /* Rotating testimonial: one voice at a time */
 .g3-rotator { position: relative; }
@@ -511,8 +593,8 @@
 }
 .g3 .input:focus, .g3 .textarea:focus { border-color: var(--g3-brass-500); outline: none; box-shadow: none; }
 .g3 .btn { border-radius: 0; }
-.g3 .btn--primary { background: var(--g3-cta); color: var(--g3-lake-900); box-shadow: none; }
-.g3 .btn--primary:hover { background: var(--g3-cta-hover); color: var(--g3-lake-900); }
+.g3 .btn--primary { background: var(--g3-cta); color: #000; box-shadow: none; }
+.g3 .btn--primary:hover { background: var(--g3-cta-hover); color: #000; }
 .g3 .btn--ghost { background: transparent; border: 1px solid rgba(233, 231, 225, 0.3); color: var(--g3-foam); }
 .g3 .btn--ghost:hover { border-color: var(--g3-brass-300); color: var(--g3-brass-300); }
 .g3 .card, .g3 .calc, .g3 .panel { background: var(--g3-lake-950); border: 1px solid var(--g3-line); border-radius: 0; box-shadow: none; }

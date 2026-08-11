@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useRevealV3, useMagnet } from "../lib/v3fx";
-
-const IG = "/case-studies/ignify";
 
 // All six quotes approved by the founder on their behalf, 2026-08-11.
 const PEOPLE: Array<{ k: string; text: string; name: string; role: string; img?: string }> = [
@@ -46,6 +44,138 @@ function QuoteRotator() {
         {PEOPLE.map((p, k) => (
           <button key={p.k} className={"g3-rotator__dot" + (k === i ? " is-on" : "")} aria-label={"Show quote from " + p.name} onClick={() => setI(k)} />
         ))}
+      </div>
+    </div>
+  );
+}
+
+type ShowLink = { to?: string; href?: string; label: string };
+type ShowItem = { k: string; kicker: string; name: string; desc: string; img: string; chrome?: string; link?: ShowLink };
+
+const MOBILE_APPS: ShowItem[] = [
+  {
+    k: "ignify", kicker: "Client build · IGNIFY Incorporated · iOS & Android · Live", name: "IGNIFY apps",
+    desc: "Teacher, family, and owner apps: scheduling, messaging, AI lesson reports, payments.",
+    img: "/case-studies/ignify/owner-dashboard.png", link: { to: "/work/ignify", label: "Case study →" },
+  },
+  {
+    k: "mesele", kicker: "Tehnika Dünýäsi · In build", name: "Mesele Ýok",
+    desc: "A two-sided home-services marketplace: one app for customers, one for specialists.",
+    img: "/work/phone-meseleyok.jpg",
+  },
+  {
+    k: "bilet", kicker: "Designed · 2026", name: "Bilet Daýza",
+    desc: "Ticketing for cinemas and events: browse, book, and an offline QR ticket at the gate.",
+    img: "/work/phone-biletdayza.jpg",
+  },
+  {
+    k: "sauto", kicker: "Field service · In build", name: "Service Auto",
+    desc: "Routes, verified visits, and invoicing for lawn-care crews.",
+    img: "/work/phone-serviceauto.jpg",
+  },
+];
+
+const WEB_APPS: ShowItem[] = [
+  {
+    k: "admin", kicker: "Client build · IGNIFY Incorporated · Live", name: "IGNIFY admin console",
+    desc: "Staff operations console: triage, tickets, platform health, and billing oversight.",
+    img: "/work/web-ignifyadmin.jpg", chrome: "admin.ignify.us · design preview",
+  },
+  {
+    k: "operator", kicker: "Tehnika Dünýäsi · Designed · 2026", name: "Mesele Ýok Operator",
+    desc: "The marketplace back office: live dispatch board, roster, and order flows.",
+    img: "/work/web-operator.jpg", chrome: "operator · design preview",
+  },
+  {
+    k: "tb", kicker: "turkmen.biz · Live", name: "turkmen.biz",
+    desc: "The signed-in network: member catalog, profiles, and search, in three languages.",
+    img: "/work/web-turkmenbiz.jpg", chrome: "turkmen.biz", link: { href: "https://turkmen.biz", label: "turkmen.biz ↗" },
+  },
+];
+
+/** Hover/tap-driven device rail: the list switches the screen inside a fixed device mock.
+    Auto-advances every 5s until the visitor deliberately picks an item. */
+function DeviceShowcase({ items, kind }: { items: ShowItem[]; kind: "phone" | "browser" }) {
+  const [active, setActive] = useState(0);
+  const [engaged, setEngaged] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const [inView, setInView] = useState(true);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const hoverT = useRef(0);
+
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el || !("IntersectionObserver" in window)) return;
+    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), { threshold: 0.2 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (engaged || hovered || !inView) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const t = window.setInterval(() => setActive((v) => (v + 1) % items.length), 5000);
+    return () => window.clearInterval(t);
+  }, [engaged, hovered, inView, items.length]);
+
+  // 120ms hover intent so cursor travel doesn't strobe through every screen
+  const hoverPick = (i: number) => {
+    window.clearTimeout(hoverT.current);
+    hoverT.current = window.setTimeout(() => setActive(i), 120);
+  };
+  const pick = (i: number) => {
+    window.clearTimeout(hoverT.current);
+    setActive(i);
+    setEngaged(true);
+  };
+
+  return (
+    <div
+      ref={rootRef}
+      className={`g3-devshow g3-devshow--${kind}`}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => { setHovered(false); window.clearTimeout(hoverT.current); }}
+    >
+      <div className="g3-devshow__list">
+        {items.map((it, i) => (
+          <div key={it.k} className={"g3-devshow__row" + (i === active ? " is-on" : "")} onMouseEnter={() => hoverPick(i)}>
+            <button type="button" className="g3-devshow__hit" aria-pressed={i === active} onClick={() => pick(i)} onFocus={() => pick(i)}>
+              <span className="g3-devshow__num">{String(i + 1).padStart(2, "0")}</span>
+              <span className="g3-devshow__meta">
+                <span className="g3-card__kicker">{it.kicker}</span>
+                <span className="g3-devshow__name">{it.name}</span>
+                <span className="g3-devshow__desc">{it.desc}</span>
+              </span>
+            </button>
+            {it.link && (
+              <span className="g3-devshow__link">
+                {it.link.to ? (
+                  <Link className="g3-action" to={it.link.to}>{it.link.label}</Link>
+                ) : (
+                  <a className="g3-action" href={it.link.href} target="_blank" rel="noreferrer">{it.link.label}</a>
+                )}
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
+      <div className="g3-devshow__stage" aria-hidden="true">
+        <div className="g3-devshow__device">
+          {kind === "browser" && (
+            <div className="g3-devshow__bar">
+              <i /><i /><i />
+              <span>{items[active].chrome}</span>
+            </div>
+          )}
+          <div className="g3-devshow__screen">
+            {items.map((it, i) => (
+              <img
+                key={it.k} src={it.img} alt="" className={i === active ? "is-on" : ""}
+                decoding="async" width={kind === "phone" ? 720 : 1600} height={kind === "phone" ? 1600 : 1000}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -118,39 +248,16 @@ export default function Work() {
         </div>
       </section>
 
-      {/* ===== MOBILE APPS ===== */}
-      <section className="g3-section g3-section--line" style={{ paddingTop: "clamp(36px,5vh,56px)", paddingBottom: "clamp(36px,5vh,56px)" }}>
-        <div className="g3-label g3-section-label" data-rv="0" style={{ marginBottom: 0 }}>Mobile apps</div>
-        <div className="g3-catgrid">
-          <Card rv={0} to="/work/ignify" media={`${IG}/owner-dashboard.png`} mediaClass="g3-card__media--top"
-            kicker="Client build · iOS & Android · Live" title="IGNIFY apps"
-            desc="Teacher, family, and owner apps: scheduling, messaging, AI lesson reports, payments." />
-          <Card rv={60} media="/work/app-meseleyok.jpg" mediaClass="g3-card__media--top"
-            kicker="Tehnika Dünýäsi · In build" title="Mesele Ýok"
-            desc="A two-sided home-services marketplace: one app for customers, one for specialists." />
-          <Card rv={120} media="/work/app-biletdayza.jpg" mediaClass="g3-card__media--top"
-            kicker="Designed · 2026" title="Bilet Daýza"
-            desc="Ticketing for cinemas and events: browse, book, and an offline QR ticket at the gate." />
-          <Card rv={180} media="/work/app-serviceauto.jpg" mediaClass="g3-card__media--top"
-            kicker="Field service · In build" title="Service Auto"
-            desc="Routes, verified visits, and invoicing for lawn-care crews." />
-        </div>
+      {/* ===== MOBILE APPS: phone peeking from the right, list switches its screen ===== */}
+      <section className="g3-section g3-section--line g3-showsec" style={{ paddingTop: "clamp(36px,5vh,56px)", paddingBottom: "clamp(36px,5vh,56px)" }}>
+        <div className="g3-label g3-section-label" data-rv="0">Mobile apps</div>
+        <DeviceShowcase kind="phone" items={MOBILE_APPS} />
       </section>
 
-      {/* ===== WEB APPS ===== */}
-      <section className="g3-section g3-section--line" style={{ paddingTop: "clamp(36px,5vh,56px)", paddingBottom: "clamp(36px,5vh,56px)" }}>
-        <div className="g3-label g3-section-label" data-rv="0" style={{ marginBottom: 0 }}>Web apps</div>
-        <div className="g3-catgrid">
-          <Card rv={0} media="/work/webapp-ignifyadmin.jpg"
-            kicker="Client build · IGNIFY Incorporated · Live" title="IGNIFY admin console"
-            desc="Staff operations console: roster, tickets, billing oversight, and support tooling." />
-          <Card rv={60} media="/work/meseleyok-operator-shot.jpg" mediaClass="g3-card__media--croptr"
-            kicker="Tehnika Dünýäsi · Designed · 2026" title="Mesele Ýok Operator"
-            desc="The marketplace back office: dispatch board, roster, and order flows." />
-          <Card rv={120} mediaLabel="Private · Live"
-            kicker="turkmen.biz · Live" title="turkmen.biz Studio"
-            desc="The publishing console behind turkmen.biz: listings, content, and translations." />
-        </div>
+      {/* ===== WEB APPS: mirrored — browser peeking from the left ===== */}
+      <section className="g3-section g3-section--line g3-showsec" style={{ paddingTop: "clamp(36px,5vh,56px)", paddingBottom: "clamp(36px,5vh,56px)" }}>
+        <div className="g3-label g3-section-label" data-rv="0">Web apps</div>
+        <DeviceShowcase kind="browser" items={WEB_APPS} />
       </section>
 
       {/* ===== PRACTICES ===== */}
