@@ -67,19 +67,15 @@ export default function Home() {
         </div>
         <div className="g3-workgrid">
           <Link to="/work/ignify" className="g3-card g3-card--split" data-rv="0">
-            <span className="g3-card__media g3-card__media--tall" aria-hidden="true" style={{ background: "var(--g3-lake-950)" }}>
-              <span className="g3-stack">
-                <img src={`${IG}/hero-teacher-review.png`} alt="" loading="lazy" width={362} height={787} />
-                <img src={`${IG}/owner-dashboard.png`} alt="" loading="lazy" width={340} height={739} />
-                <img src={`${IG}/family-report.png`} alt="" loading="lazy" width={340} height={739} />
-              </span>
+            <span className="g3-card__media g3-card__media--tall g3-card__media--croptl" aria-hidden="true">
+              <img src="/work/ignifyus-shot.jpg" alt="" loading="lazy" width={1600} height={1000} />
             </span>
             <span className="g3-card__caption">
               <span className="g3-card__kicker">Client build · IGNIFY Incorporated · Live 2025</span>
               <span className="g3-card__title">
                 <img src="/work/ignify-logo-white.png" alt="IGNIFY" style={{ height: 20, width: "auto", background: "none", padding: 0 }} />
               </span>
-              <span className="g3-card__desc">Studio-management SaaS we designed, built, and operate: apps, web console, AI reports, payments.</span>
+              <span className="g3-card__desc">The studio platform and its public site, designed, built, and operated end to end for IGNIFY Incorporated.</span>
             </span>
           </Link>
           <a href="https://midtec.com" target="_blank" rel="noreferrer" className="g3-card g3-card--split" data-rv="80">

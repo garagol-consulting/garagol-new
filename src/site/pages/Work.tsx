@@ -4,21 +4,52 @@ import { useRevealV3, useMagnet } from "../lib/v3fx";
 const IG = "/case-studies/ignify";
 
 // Truth gates: quotes are drafted for sign-off and render only in dev builds
-// (with a DRAFT flag) until the person approves. Flip to true on approval.
-const SIGNED = { kevin: false, ayna: false, ata: false, maya: false };
-const showQuote = (k: keyof typeof SIGNED) => SIGNED[k] || import.meta.env.DEV;
+// (with a DRAFT flag) until each person approves. Flip to true on approval.
+const SIGNED = { kevin: false, ayna: false, maya: false, ata: false, kelsey: false, sultan: false };
 
-function Quote({ k, text, by }: { k: keyof typeof SIGNED; text: string; by: string }) {
-  if (!showQuote(k)) return null;
-  return (
-    <blockquote className="g3-miniquote">
-      "{text}"
-      <cite>
-        {by}
-        {!SIGNED[k] && <span className="g3-flag" style={{ marginLeft: 10 }}>Draft · pending sign-off</span>}
-      </cite>
-    </blockquote>
+const PEOPLE: Array<{ k: keyof typeof SIGNED; text: string; name: string; role: string; img?: string }> = [
+  { k: "kevin", text: "Easy to work with, quick to deliver, and the new site looks sharp everywhere. Exactly what we needed.", name: "Kevin Vincent", role: "Midtec Associates · midtec.com", img: "/work/kevin.png" },
+  { k: "ayna", text: "The Matchstick found customers we never reached before. turkmen.biz is the first place I send any Turkmen business getting started.", name: "Ayna Pirkuliyeva", role: "Owner, The Matchstick · thematchstick.co", img: "/work/people/ayna.jpg" },
+  { k: "maya", text: "The new site captures who we are, and working with Garagol was effortless. They knew our world before we said a word.", name: "Dr. Maya Tuylieva", role: "Music Academy of Kansas City", img: "/work/people/maya.jpg" },
+  { k: "kelsey", text: "They ran our marketing like owners: a clear plan, honest reporting, and numbers that actually moved.", name: "Kelsey Crockett", role: "Growth marketing client", img: "/work/people/kelsey.jpg" },
+  { k: "sultan", text: "One working session saved me months. I left with a scope, a stack, and a budget I could act on.", name: "Sultan Amangeldiyev", role: "Owner, Five Eight Bloom · fiveeightbloom.com", img: "/work/people/sultan.jpg" },
+  { k: "ata", text: "Thorough and practical. Clear findings, clear fixes, no scare tactics. We closed real gaps fast.", name: "Ata Kakajanow", role: "Cybersecurity client" },
+];
+
+function Card(props: {
+  href?: string; to?: string; media?: string; mediaClass?: string; mediaLabel?: string;
+  kicker: string; title?: string; titleLogo?: { src: string; h: number; chip?: boolean };
+  desc: string; rv?: number; alt?: string;
+}) {
+  const body = (
+    <>
+      <span className={"g3-card__media g3-card__media--tall " + (props.mediaClass || "") + (props.media ? "" : " g3-card__media--label")} aria-hidden="true">
+        {props.media ? (
+          <img src={props.media} alt="" loading="lazy" width={1600} height={1000} />
+        ) : (
+          <span className="g3-label" style={{ color: "var(--g3-mist-deep)" }}>{props.mediaLabel}</span>
+        )}
+      </span>
+      <span className="g3-card__caption">
+        <span className="g3-card__kicker">{props.kicker}</span>
+        <span className="g3-card__title">
+          {props.titleLogo && (
+            <img
+              src={props.titleLogo.src}
+              alt={props.title || ""}
+              style={props.titleLogo.chip ? { height: props.titleLogo.h } : { height: props.titleLogo.h, background: "none", padding: 0, width: "auto" }}
+            />
+          )}
+          {props.title}
+        </span>
+        <span className="g3-card__desc">{props.desc}</span>
+      </span>
+    </>
   );
+  const cls = "g3-card g3-card--split";
+  if (props.to) return <Link to={props.to} className={cls} data-rv={props.rv ?? 0}>{body}</Link>;
+  if (props.href) return <a href={props.href} target="_blank" rel="noreferrer" className={cls} data-rv={props.rv ?? 0}>{body}</a>;
+  return <div className={cls} data-rv={props.rv ?? 0}>{body}</div>;
 }
 
 export default function Work() {
@@ -26,169 +57,74 @@ export default function Work() {
   useMagnet();
   return (
     <main className="g3" id="main">
-      <header style={{ padding: "calc(68px + clamp(48px,9vh,110px)) var(--g3-gutter) clamp(32px,5vh,56px)" }}>
+      <header style={{ padding: "calc(68px + clamp(48px,9vh,110px)) var(--g3-gutter) clamp(24px,4vh,44px)" }}>
         <h1 className="g3-wp-h1" data-rv="0">Work<span className="g3-dot">.</span></h1>
         <p data-rv="80" style={{ margin: "24px 0 0", fontSize: "clamp(16px,1.5vw,20px)", color: "var(--g3-mist)", maxWidth: "54ch", lineHeight: 1.5 }}>
-          Client work and our own products. Everything here is real: live, in build, or shown on request.
+          Client work and our own products, by build. Everything here is real: live, in build, or shown on request.
         </p>
       </header>
 
-      {/* ===== NAMED CASES ===== */}
-      <section style={{ padding: "0 var(--g3-gutter)" }}>
-
-        {/* 01 · IGNIFY (client: IGNIFY Incorporated) */}
-        <article className="g3-row" data-rv="0">
-          <div className="g3-row__media" style={{ background: "var(--g3-lake-950)" }}>
-            <span className="g3-stack" aria-hidden="true">
-              <img src={`${IG}/hero-teacher-review.png`} alt="" loading="lazy" width={362} height={787} />
-              <img src={`${IG}/owner-dashboard.png`} alt="" loading="lazy" width={340} height={739} />
-              <img src={`${IG}/family-report.png`} alt="" loading="lazy" width={340} height={739} />
-            </span>
-          </div>
-          <div>
-            <div className="g3-row__num">01</div>
-            <h2 className="g3-row__title">
-              <img src="/work/ignify-logo-white.png" alt="IGNIFY" />
-            </h2>
-            <p className="g3-row__body">
-              IGNIFY Incorporated hired Garagol to take their studio-management platform from zero to live:
-              product design, the apps, the website, an admin web portal, serverless AWS backend, AI
-              lesson-report pipeline, and payments. Live at a real academy since 2025, with 99.99% uptime
-              on the platform we operate.
-            </p>
-            <div style={{ marginTop: 18 }}>
-              <div className="g3-subrow"><strong>iOS &amp; Android apps</strong><span>Live</span></div>
-              <div className="g3-subrow"><strong>ignify.us website</strong><a className="g3-action" href="https://ignify.us" target="_blank" rel="noreferrer">Visit ↗</a></div>
-              <div className="g3-subrow"><strong>Admin web portal</strong><span>Live · private</span></div>
-            </div>
-            <div className="g3-chips">
-              <span className="g3-chip">Client work</span><span className="g3-chip">Apps &amp; platforms</span><span className="g3-chip">We operate it</span>
-            </div>
-            <div style={{ marginTop: 20 }}><Link className="g3-action" to="/work/ignify">Case study →</Link></div>
-          </div>
-        </article>
-
-        {/* 02 · ignify.us website */}
-        <article className="g3-row g3-row--rev" data-rv="0">
-          <div className="g3-row__media">
-            <img src="/work/ignifyus-shot.jpg" alt="The ignify.us website" loading="lazy" width={1600} height={1000} />
-          </div>
-          <div>
-            <div className="g3-row__num">02</div>
-            <h2 className="g3-row__title">ignify.us</h2>
-            <p className="g3-row__body">
-              IGNIFY's public site: positioning, copy, design, and build, including an interactive
-              in-browser product demo. Same engagement, separate craft: this is what our website work
-              looks like.
-            </p>
-            <div className="g3-chips">
-              <span className="g3-chip">Client work</span><span className="g3-chip">Websites</span>
-            </div>
-            <div style={{ marginTop: 20 }}><a className="g3-action" href="https://ignify.us" target="_blank" rel="noreferrer">Visit live ↗</a></div>
-          </div>
-        </article>
-
-        {/* 03 · Midtec */}
-        <article className="g3-row" data-rv="0">
-          <div className="g3-row__media">
-            <img src="/work/midtec-shot.jpg" alt="The redesigned midtec.com" loading="lazy" width={1600} height={1000} />
-          </div>
-          <div>
-            <div className="g3-row__num">03</div>
-            <h2 className="g3-row__title">Midtec Associates</h2>
-            <p className="g3-row__body">
-              Complete website redesign for an independent manufacturers' representative for electronic
-              components, serving Mid-America since 1977. Live at midtec.com.
-            </p>
-            <Quote k="kevin" text="Easy to work with, quick to deliver, and the new site looks sharp everywhere. Exactly what we needed." by="Kevin Vincent · Midtec Associates" />
-            <div className="g3-chips">
-              <span className="g3-chip">Client work</span><span className="g3-chip">Websites</span><span className="g3-chip">Brand</span>
-            </div>
-            <div style={{ marginTop: 20 }}><a className="g3-action" href="https://midtec.com" target="_blank" rel="noreferrer">Visit live ↗</a></div>
-          </div>
-        </article>
-
-        {/* 04 · turkmen.biz */}
-        <article className="g3-row g3-row--rev" data-rv="0">
-          <div className="g3-row__media">
-            <img src="/work/turkmenbiz-shot.jpg" alt="The turkmen.biz platform" loading="lazy" width={1600} height={1000} />
-          </div>
-          <div>
-            <div className="g3-row__num">04</div>
-            <h2 className="g3-row__title">
-              <img src="/work/turkmenbiz-logo.png" alt="" style={{ height: 28 }} />
-              turkmen.biz
-            </h2>
-            <p className="g3-row__body">
-              Our own venture: a multilingual business directory and marketplace for Turkmen businesses
-              at home and abroad. We designed it, built it, and operate it.
-            </p>
-            <Quote k="ayna" text="Allamyrat took an idea we kept talking about and turned it into a real platform our community actually uses. Design, build, and running it: he handled all of it." by="Ayna Pirkuliyeva · turkmen.biz" />
-            <div className="g3-chips">
-              <span className="g3-chip">Our venture</span><span className="g3-chip">Platforms</span><span className="g3-chip">Multilingual</span>
-            </div>
-            <div style={{ marginTop: 20 }}><a className="g3-action" href="https://turkmen.biz" target="_blank" rel="noreferrer">Visit live ↗</a></div>
-          </div>
-        </article>
-
-        {/* 05 · MAKC website (in progress) */}
-        <article className="g3-row" data-rv="0">
-          <div className="g3-row__media g3-row__media--empty">
-            <span className="g3-label" style={{ color: "var(--g3-mist-deep)" }}>In build · 2026</span>
-          </div>
-          <div>
-            <div className="g3-row__num">05</div>
-            <h2 className="g3-row__title">Music Academy of Kansas City</h2>
-            <p className="g3-row__body">
-              A new public website for the academy, in build now. Related to, but separate from, IGNIFY:
-              the academy also runs on the platform we built and operate.
-            </p>
-            <Quote k="maya" text="The new site captures who we are, and working with Garagol was effortless. They knew our world before we said a word." by="Dr. Maya Tuylieva · Music Academy of Kansas City" />
-            <div className="g3-chips">
-              <span className="g3-chip">Client work</span><span className="g3-chip">Websites</span><span className="g3-chip">In progress</span>
-            </div>
-          </div>
-        </article>
+      {/* ===== WEBSITES ===== */}
+      <section className="g3-section g3-section--line" style={{ paddingTop: "clamp(36px,5vh,56px)", paddingBottom: "clamp(36px,5vh,56px)" }}>
+        <div className="g3-label g3-section-label" data-rv="0" style={{ marginBottom: 0 }}>Websites</div>
+        <div className="g3-catgrid g3-catgrid--2">
+          <Card rv={0} href="https://ignify.us" media="/work/ignifyus-shot.jpg" mediaClass="g3-card__media--croptl"
+            kicker="Client build · IGNIFY Incorporated · Live" title="IGNIFY"
+            desc="The platform's public site: positioning, copy, design, and build, with an in-browser product demo." />
+          <Card rv={60} href="https://midtec.com" media="/work/midtec-shot.jpg" mediaClass="g3-card__media--croptl"
+            kicker="Client redesign · Live at midtec.com ↗" title="Midtec Associates"
+            desc="Complete redesign for a manufacturers' rep serving Mid-America since 1977." />
+          <Card rv={120} href="https://turkmen.biz" media="/work/turkmenbiz-shot.jpg" mediaClass="g3-card__media--croptl"
+            kicker="Our venture · Live ↗" title="turkmen.biz" titleLogo={{ src: "/work/turkmenbiz-logo.png", h: 26, chip: true }}
+            desc="A multilingual business directory and marketplace we design, build, and operate." />
+          <Card rv={180} media="/work/makc-shot.jpg" mediaClass="g3-card__media--croptl"
+            kicker="Client build · In build · 2026" title="Music Academy of Kansas City"
+            desc="A new public site for the academy: designed, approved, and in build now." />
+        </div>
       </section>
 
-      {/* ===== ALSO BUILT & IN BUILD ===== */}
-      <section className="g3-section g3-section--line" style={{ paddingTop: "clamp(40px,6vh,64px)" }}>
-        <div className="g3-label g3-section-label" data-rv="0">Also built, and in build</div>
-        <div className="g3-shelf">
-          <div className="g3-shelfcard" data-rv="0">
-            <span className="g3-status">In build · 2026</span>
-            <strong>Service Auto</strong>
-            <p>Field-service platform for lawn-care crews: routes, verified visits, invoicing, and a live day board.</p>
-          </div>
-          <div className="g3-shelfcard" data-rv="60">
-            <span className="g3-status">In build · 2026</span>
-            <strong>Mesele Ýok</strong>
-            <p>A two-sided home-services marketplace for Tehnika Dünýäsi, Ashgabat: one app for customers, one for specialists.</p>
-          </div>
-          <div className="g3-shelfcard" data-rv="120">
-            <span className="g3-status">Designed · 2026</span>
-            <strong>Mesele Ýok Operator</strong>
-            <p>The marketplace's back office: dispatch board, roster, order flows, and reporting console.</p>
-          </div>
-          <div className="g3-shelfcard" data-rv="180">
-            <span className="g3-status">Designed · 2026</span>
-            <strong>Bilet Daýza</strong>
-            <p>Mobile ticketing for cinemas and events: browse, book, and an offline QR ticket at the gate.</p>
-          </div>
+      {/* ===== MOBILE APPS ===== */}
+      <section className="g3-section g3-section--line" style={{ paddingTop: "clamp(36px,5vh,56px)", paddingBottom: "clamp(36px,5vh,56px)" }}>
+        <div className="g3-label g3-section-label" data-rv="0" style={{ marginBottom: 0 }}>Mobile apps</div>
+        <div className="g3-catgrid">
+          <Card rv={0} to="/work/ignify" media={`${IG}/hero-teacher-review.png`} mediaClass="g3-card__media--top"
+            kicker="Client build · iOS & Android · Live" title="IGNIFY apps"
+            desc="Teacher, family, and owner apps: scheduling, messaging, AI lesson reports, payments." />
+          <Card rv={60} media="/work/meseleyok-shot.jpg" mediaClass="g3-card__media--phone"
+            kicker="Tehnika Dünýäsi · In build" title="Mesele Ýok"
+            desc="A two-sided home-services marketplace: one app for customers, one for specialists." />
+          <Card rv={120} media="/work/biletdayza-shot.jpg" mediaClass="g3-card__media--croptl"
+            kicker="Designed · 2026" title="Bilet Daýza"
+            desc="Ticketing for cinemas and events: browse, book, and an offline QR ticket at the gate." />
+          <Card rv={180} mediaLabel="In build · 2026"
+            kicker="Field service · In build" title="Service Auto"
+            desc="Routes, verified visits, and invoicing for lawn-care crews." />
         </div>
-        <p data-rv="200" style={{ margin: "18px 0 0", fontSize: 13, color: "var(--g3-mist-deep)" }}>Screens for these land here as each ships. Walkthroughs on request.</p>
+      </section>
+
+      {/* ===== WEB APPS ===== */}
+      <section className="g3-section g3-section--line" style={{ paddingTop: "clamp(36px,5vh,56px)", paddingBottom: "clamp(36px,5vh,56px)" }}>
+        <div className="g3-label g3-section-label" data-rv="0" style={{ marginBottom: 0 }}>Web apps</div>
+        <div className="g3-catgrid">
+          <Card rv={0} mediaLabel="Private · Live"
+            kicker="Client build · IGNIFY Incorporated · Live" title="IGNIFY admin console"
+            desc="Staff operations console: roster, tickets, billing oversight, and support tooling." />
+          <Card rv={60} media="/work/meseleyok-operator-shot.jpg" mediaClass="g3-card__media--croptl"
+            kicker="Tehnika Dünýäsi · Designed · 2026" title="Mesele Ýok Operator"
+            desc="The marketplace back office: dispatch board, roster, and order flows." />
+          <Card rv={120} mediaLabel="Private · Live"
+            kicker="Our venture · Live" title="turkmen.biz Studio"
+            desc="The publishing console behind turkmen.biz: listings, content, and translations." />
+        </div>
       </section>
 
       {/* ===== PRACTICES ===== */}
-      <section className="g3-section" style={{ paddingTop: 0 }}>
+      <section className="g3-section g3-section--line" style={{ paddingTop: "clamp(36px,5vh,56px)", paddingBottom: "clamp(36px,5vh,56px)" }}>
         <div className="g3-label g3-section-label" data-rv="0">Ongoing practices</div>
         <div>
           <div className="g3-practice" data-rv="0">
             <h3>Cybersecurity consulting</h3>
-            <div>
-              <p>Assessments, hardening, MFA and SSO baselines, and practical fixes for client teams, led by a working security engineer.</p>
-              <Quote k="ata" text="Thorough and practical. Clear findings, clear fixes, no scare tactics. We closed real gaps fast." by="Ata Kakajanow · Cybersecurity client" />
-            </div>
+            <p>Assessments, hardening, MFA and SSO baselines, and practical fixes for client teams, led by a working security engineer.</p>
           </div>
           <div className="g3-practice" data-rv="0">
             <h3>Growth marketing</h3>
@@ -198,6 +134,26 @@ export default function Work() {
             <h3>Startup advisory</h3>
             <p>Working sessions for founders shaping an idea into a plan: scope, stack, cost, and the honest version of what it takes.</p>
           </div>
+        </div>
+      </section>
+
+      {/* ===== IN THEIR WORDS (gated until each person signs off) ===== */}
+      <section className="g3-section" style={{ paddingTop: "clamp(36px,5vh,56px)" }}>
+        <div className="g3-label g3-section-label" data-rv="0" style={{ marginBottom: 0 }}>In their words</div>
+        <div className="g3-people">
+          {PEOPLE.filter((p) => SIGNED[p.k] || import.meta.env.DEV).map((p, i) => (
+            <figure className="g3-person" data-rv={(i % 3) * 60} key={p.k} style={{ margin: 0 }}>
+              <blockquote>"{p.text}"</blockquote>
+              <footer>
+                {p.img ? <img src={p.img} alt={p.name} width={40} height={40} /> : <span className="g3-person__init">{p.name.split(" ").map((w) => w[0]).join("")}</span>}
+                <div>
+                  <strong>{p.name}</strong>
+                  <span>{p.role}</span>
+                </div>
+                {!SIGNED[p.k] && <span className="g3-flag">Draft · pending sign-off</span>}
+              </footer>
+            </figure>
+          ))}
         </div>
       </section>
 
