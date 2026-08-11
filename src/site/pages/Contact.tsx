@@ -291,7 +291,7 @@ export default function Contact() {
           <span className="kicker" data-reveal><span className="num">●</span> START A PROJECT</span>
           <h1 data-reveal>Let's scope what you're building.</h1>
           <p className="lead" data-reveal data-reveal-delay="1">
-            Two ways in: get a tailored estimate in five quick questions, or send a quick inquiry. Either way, we reply within ~2 hours during business hours.
+            Three ways in: book a 30-minute call, get a tailored estimate in five quick questions, or send a quick inquiry. Either way, we reply within ~2 hours during business hours.
           </p>
         </div>
       </section>
@@ -318,7 +318,7 @@ export default function Contact() {
           </div>
           <div className="alt-contact" data-reveal data-reveal-delay="1">
             <a href="mailto:hello@garagol.com"><Mail size={16} /> hello@garagol.com</a>
-            <a href="mailto:hello@garagol.com?subject=Discovery%20call%20request"><Calendar size={16} /> Request a discovery call</a>
+            <a href="https://calendly.com/allamyrat/30min" target="_blank" rel="noreferrer"><Calendar size={16} /> Book a 30-min call</a>
             <a href="https://www.linkedin.com/company/garagol/" target="_blank" rel="noreferrer"><LinkedInIcon size={16} /> LinkedIn</a>
             <a href="https://www.upwork.com/agencies/1791289820464082944/" target="_blank" rel="noreferrer"><Briefcase size={16} /> Upwork</a>
           </div>

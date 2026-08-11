@@ -62,19 +62,22 @@ export default function Work() {
               </div>
             </a>
 
-            <a href="https://www.garagol.com/midtec/" target="_blank" rel="noreferrer" className="card card--hover work-card">
+            <a href="https://midtec.com" target="_blank" rel="noreferrer" className="card card--hover work-card">
+              <div className="work-card__media">
+                <img className="work-card__img" loading="lazy" width={1200} height={630} src="/work/midtec-card.jpg" alt="The redesigned midtec.com website" />
+              </div>
               <div className="work-card__body">
                 <div className="work-card__top">
                   <span className="work-card__title">Midtec Associates</span>
-                  <span className="tag">Concept</span>
+                  <span className="tag tag--green">Live</span>
                 </div>
                 <p className="muted" style={{ fontSize: "var(--fs-sm)", marginTop: -4 }}>
-                  A complete website redesign concept for an industrial equipment firm, live as a working draft
-                  you can browse today.
+                  A complete website redesign for an independent manufacturers' representative for electronic
+                  components, serving Mid-America since 1977. Live at midtec.com.
                 </p>
                 <div className="work-card__foot">
                   <div className="tags"><span className="tag">Brand</span><span className="tag">Web</span></div>
-                  <span className="link-arrow">View the draft <ArrowRight className="arrow" /></span>
+                  <span className="link-arrow">Visit midtec.com <ArrowRight className="arrow" /></span>
                 </div>
               </div>
             </a>

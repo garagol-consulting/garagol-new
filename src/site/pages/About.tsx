@@ -37,9 +37,9 @@ export default function About() {
         <div className="wrap">
           <div className="section-head" data-reveal><span className="kicker">WHO YOU WORK WITH</span><h2 className="h2">Founder-led, deliberately small.</h2></div>
           <div className="team-grid" style={{ marginTop: "var(--s5)" }}>
-            <div data-reveal><div className="member__photo">A</div><div className="member__name">Allamyrat Tuyliyev</div><div className="member__role">Founder</div><div className="member__exp">The engineer-founder behind IGNIFY: strategy, product design, iOS and Android, the AWS backend, AI pipeline, and payments. He leads every Garagol engagement personally.</div></div>
+            <div data-reveal><div className="member__photo">A</div><div className="member__name">Allamyrat Tuyliyev</div><div className="member__role">Founder &amp; Principal Consultant</div><div className="member__exp">Security engineer by trade (MSc in Cyber Intelligence, a decade across financial services, retail, and education) and the engineer-founder behind IGNIFY: strategy, product design, iOS and Android, AWS backend, AI pipeline, and payments. He leads every engagement personally.</div></div>
           </div>
-          <p className="muted-3" style={{ fontSize: 13, marginTop: "var(--s3)" }} data-reveal>Garagol stays deliberately small: senior work, no handoffs, and you always talk to the people doing the work.</p>
+          <p className="muted-3" style={{ fontSize: 13, marginTop: "var(--s3)" }} data-reveal>Garagol Consulting &amp; Solutions is based in Dallas / Fort Worth, Texas, and works everywhere. Deliberately small: senior work, no handoffs, and you always talk to the people doing the work.</p>
         </div>
       </section>
 
@@ -76,6 +76,7 @@ export default function About() {
       <section className="section--tight">
         <div className="wrap">
           <div className="metrics card" style={{ padding: "var(--s5) var(--s4)" }} data-reveal>
+            <div className="metric"><div className="metric__v">15+</div><div className="metric__l">Projects across 6 industries</div></div>
             <div className="metric"><div className="metric__v">2025</div><div className="metric__l">IGNIFY live in production</div></div>
             <div className="metric"><div className="metric__v">99.99<span className="suf">%</span></div><div className="metric__l">Uptime across IGNIFY, the platform we operate</div></div>
             <div className="metric"><div className="metric__v"><span className="pre">&lt;</span>2<span className="suf">&nbsp;hr</span></div><div className="metric__l">Avg reply during business hours</div></div>

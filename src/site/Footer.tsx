@@ -41,12 +41,13 @@ export default function Footer() {
           <div className="footer__col">
             <h4>Get in touch</h4>
             <Link to="/contact">Start a project</Link>
+            <a href="https://calendly.com/allamyrat/30min" target="_blank" rel="noreferrer">Book a 30-min call</a>
             <Link to="/contact#estimate">Get an estimate</Link>
             <a href="mailto:hello@garagol.com">hello@garagol.com</a>
           </div>
         </div>
         <div className="footer__bar">
-          <span>© {year} Garagol. All rights reserved.</span>
+          <span>© {year} Garagol Consulting &amp; Solutions · Dallas / Fort Worth, Texas</span>
           <span className="mono">Built by Garagol</span>
         </div>
       </div>

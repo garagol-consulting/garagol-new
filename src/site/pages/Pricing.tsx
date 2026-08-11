@@ -47,7 +47,7 @@ export default function Pricing() {
             <div className="card tier" data-reveal>
               <div className="tier__name">Launch</div>
               <div className="tier__who">For new products, brands &amp; MVPs</div>
-              <div className="tier__price">Price on request</div>
+              <div className="tier__price">From $12,000</div>
               <ul className="tier__list">
                 <li><Check size={16} /> Strategy, discovery &amp; scoping</li>
                 <li><Check size={16} /> Brand, product &amp; UI/UX design</li>
@@ -61,7 +61,7 @@ export default function Pricing() {
               <span className="tier__badge">Most popular</span>
               <div className="tier__name">Scale</div>
               <div className="tier__who">Ongoing growth &amp; development</div>
-              <div className="tier__price">Price on request</div>
+              <div className="tier__price">From $6,000/mo</div>
               <ul className="tier__list">
                 <li><Check size={16} /> Dedicated senior team</li>
                 <li><Check size={16} /> Sprint-based delivery</li>
@@ -74,7 +74,7 @@ export default function Pricing() {
             <div className="card tier" data-reveal data-reveal-delay="2">
               <div className="tier__name">Secure &amp; Optimize</div>
               <div className="tier__who">For existing products</div>
-              <div className="tier__price">Price on request</div>
+              <div className="tier__price">From $3,000/mo</div>
               <ul className="tier__list">
                 <li><Check size={16} /> Security &amp; code audits</li>
                 <li><Check size={16} /> DevOps &amp; CI/CD</li>

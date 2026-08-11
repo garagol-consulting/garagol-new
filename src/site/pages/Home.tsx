@@ -84,15 +84,15 @@ export default function Home() {
               </div>
             </a>
 
-            <a href="https://www.garagol.com/midtec/" target="_blank" rel="noreferrer" className="card card--hover work-card" data-reveal data-reveal-delay="2">
+            <a href="https://midtec.com" target="_blank" rel="noreferrer" className="card card--hover work-card" data-reveal data-reveal-delay="2">
               <div className="work-card__body">
-                <div className="work-card__top"><span className="work-card__title">Midtec Associates</span><span className="tag">Concept</span></div>
+                <div className="work-card__top"><span className="work-card__title">Midtec Associates</span><span className="tag tag--green">Live</span></div>
                 <p className="muted" style={{ fontSize: "var(--fs-sm)", marginTop: -4 }}>
-                  A complete website redesign concept for an industrial equipment firm, live as a working draft.
+                  A complete website redesign for an independent manufacturers' representative serving Mid-America since 1977. Live at midtec.com.
                 </p>
                 <div className="work-card__foot">
                   <div className="tags"><span className="tag">Brand</span><span className="tag">Web</span></div>
-                  <span className="link-arrow">View the draft <ArrowRight className="arrow" /></span>
+                  <span className="link-arrow">Visit midtec.com <ArrowRight className="arrow" /></span>
                 </div>
               </div>
             </a>
@@ -191,7 +191,7 @@ export default function Home() {
             <p className="lead">Scope agreed in writing, senior people doing the work, and you own everything we make. Tell us what you're working on and we'll come back with a clear plan.</p>
             <div className="cta-panel__btns">
               <Link to="/contact" className="btn btn--primary btn--lg">Start a project <ArrowRight className="arrow" /></Link>
-              <a href="mailto:hello@garagol.com?subject=Discovery%20call%20request" className="btn btn--ghost btn--lg">Request a discovery call</a>
+              <a href="https://calendly.com/allamyrat/30min" target="_blank" rel="noreferrer" className="btn btn--ghost btn--lg">Book a 30-min call</a>
             </div>
             <div className="cta-panel__chips">
               <span className="tag">Scoped in writing</span><span className="tag">Senior team, no handoffs</span><span className="tag">You own everything</span>
