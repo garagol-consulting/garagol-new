@@ -239,7 +239,8 @@
 .g3-workhead h2 { margin: 0; font-size: clamp(38px, 4.6vw, 68px); font-weight: 800; letter-spacing: -0.02em; }
 .g3-workgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 @media (max-width: 960px) { .g3-workgrid { grid-template-columns: 1fr; } }
-.g3-card__media--tall { min-height: 250px; }
+.g3-card__media--tall { flex: 0 0 auto; aspect-ratio: 16 / 10; min-height: 0; }
+.g3-card__media--phonemid img { transform: scale(1.85); transform-origin: 50% 14%; }
 .g3-card {
   position: relative; display: block; overflow: hidden;
   border: 1px solid var(--g3-line);

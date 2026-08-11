@@ -68,16 +68,16 @@ export default function Work() {
       <section className="g3-section g3-section--line" style={{ paddingTop: "clamp(36px,5vh,56px)", paddingBottom: "clamp(36px,5vh,56px)" }}>
         <div className="g3-label g3-section-label" data-rv="0" style={{ marginBottom: 0 }}>Websites</div>
         <div className="g3-catgrid g3-catgrid--2">
-          <Card rv={0} href="https://ignify.us" media="/work/ignifyus-shot.jpg" mediaClass="g3-card__media--croptl"
+          <Card rv={0} href="https://ignify.us" media="/work/ignifyus-shot.jpg"
             kicker="Client build · IGNIFY Incorporated · Live" title="IGNIFY"
             desc="The platform's public site: positioning, copy, design, and build, with an in-browser product demo." />
-          <Card rv={60} href="https://midtec.com" media="/work/midtec-shot.jpg" mediaClass="g3-card__media--croptl"
+          <Card rv={60} href="https://midtec.com" media="/work/midtec-shot.jpg"
             kicker="Client redesign · Live at midtec.com ↗" title="Midtec Associates"
             desc="Complete redesign for a manufacturers' rep serving Mid-America since 1977." />
-          <Card rv={120} href="https://turkmen.biz" media="/work/turkmenbiz-shot.jpg" mediaClass="g3-card__media--croptl"
-            kicker="Our venture · Live ↗" title="turkmen.biz" titleLogo={{ src: "/work/turkmenbiz-logo.png", h: 26, chip: true }}
+          <Card rv={120} href="https://turkmen.biz" media="/work/turkmenbiz-shot.jpg"
+            kicker="Live at turkmen.biz ↗" title="turkmen.biz" titleLogo={{ src: "/work/turkmenbiz-logo.png", h: 26, chip: true }}
             desc="A multilingual business directory and marketplace we design, build, and operate." />
-          <Card rv={180} media="/work/makc-shot.jpg" mediaClass="g3-card__media--croptl"
+          <Card rv={180} media="/work/makc-shot.jpg"
             kicker="Client build · In build · 2026" title="Music Academy of Kansas City"
             desc="A new public site for the academy: designed, approved, and in build now." />
         </div>
@@ -87,7 +87,7 @@ export default function Work() {
       <section className="g3-section g3-section--line" style={{ paddingTop: "clamp(36px,5vh,56px)", paddingBottom: "clamp(36px,5vh,56px)" }}>
         <div className="g3-label g3-section-label" data-rv="0" style={{ marginBottom: 0 }}>Mobile apps</div>
         <div className="g3-catgrid">
-          <Card rv={0} to="/work/ignify" media={`${IG}/hero-teacher-review.png`} mediaClass="g3-card__media--top"
+          <Card rv={0} to="/work/ignify" media={`${IG}/owner-dashboard.png`} mediaClass="g3-card__media--top"
             kicker="Client build · iOS & Android · Live" title="IGNIFY apps"
             desc="Teacher, family, and owner apps: scheduling, messaging, AI lesson reports, payments." />
           <Card rv={60} media="/work/meseleyok-shot.jpg" mediaClass="g3-card__media--phone"
@@ -96,7 +96,7 @@ export default function Work() {
           <Card rv={120} media="/work/biletdayza-shot.jpg" mediaClass="g3-card__media--croptl"
             kicker="Designed · 2026" title="Bilet Daýza"
             desc="Ticketing for cinemas and events: browse, book, and an offline QR ticket at the gate." />
-          <Card rv={180} mediaLabel="In build · 2026"
+          <Card rv={180} media="/work/serviceauto-shot.jpg" mediaClass="g3-card__media--phonemid"
             kicker="Field service · In build" title="Service Auto"
             desc="Routes, verified visits, and invoicing for lawn-care crews." />
         </div>
@@ -113,7 +113,7 @@ export default function Work() {
             kicker="Tehnika Dünýäsi · Designed · 2026" title="Mesele Ýok Operator"
             desc="The marketplace back office: dispatch board, roster, and order flows." />
           <Card rv={120} mediaLabel="Private · Live"
-            kicker="Our venture · Live" title="turkmen.biz Studio"
+            kicker="turkmen.biz · Live" title="turkmen.biz Studio"
             desc="The publishing console behind turkmen.biz: listings, content, and translations." />
         </div>
       </section>

@@ -66,8 +66,8 @@ export default function Home() {
           <Link to="/work" className="g3-action">All work →</Link>
         </div>
         <div className="g3-workgrid">
-          <Link to="/work/ignify" className="g3-card g3-card--split" data-rv="0">
-            <span className="g3-card__media g3-card__media--tall g3-card__media--croptl" aria-hidden="true">
+          <a href="https://ignify.us" target="_blank" rel="noreferrer" className="g3-card g3-card--split" data-rv="0">
+            <span className="g3-card__media g3-card__media--tall" aria-hidden="true">
               <img src="/work/ignifyus-shot.jpg" alt="" loading="lazy" width={1600} height={1000} />
             </span>
             <span className="g3-card__caption">
@@ -77,7 +77,7 @@ export default function Home() {
               </span>
               <span className="g3-card__desc">The studio platform and its public site, designed, built, and operated end to end for IGNIFY Incorporated.</span>
             </span>
-          </Link>
+          </a>
           <a href="https://midtec.com" target="_blank" rel="noreferrer" className="g3-card g3-card--split" data-rv="80">
             <span className="g3-card__media g3-card__media--tall" aria-hidden="true">
               <img src="/work/midtec-shot.jpg" alt="" loading="lazy" width={1600} height={1000} />
@@ -93,7 +93,7 @@ export default function Home() {
               <img src="/work/turkmenbiz-shot.jpg" alt="" loading="lazy" width={1600} height={1000} />
             </span>
             <span className="g3-card__caption">
-              <span className="g3-card__kicker">Our venture · Live ↗</span>
+              <span className="g3-card__kicker">Live at turkmen.biz ↗</span>
               <span className="g3-card__title">
                 <img src="/work/turkmenbiz-logo.png" alt="" width={26} height={26} />
                 turkmen.biz
