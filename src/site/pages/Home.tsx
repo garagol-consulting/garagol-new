@@ -16,7 +16,7 @@ export default function Home() {
       <LakeHero>
         <div className="g3-hero__inner">
           <h1 data-rv="0">
-            We design and build the software your business{" "}
+            We build, secure, and grow what your business{" "}
             <em className="g3-serif-em">runs on</em><span className="g3-dot">.</span>
           </h1>
           <div className="g3-hero__row" data-rv="120">

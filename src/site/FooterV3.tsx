@@ -11,7 +11,7 @@ export default function FooterV3() {
             <strong>Garagol</strong>
             <span>Consulting &amp; Solutions</span>
           </div>
-          <p>We design and build the software businesses run on.</p>
+          <p>We build, secure, and grow what businesses run on.</p>
           <div className="g3-footer__lake">garagol · Turkmen for "a curious kid who finds trouble"</div>
         </div>
         <div className="g3-footer__col">

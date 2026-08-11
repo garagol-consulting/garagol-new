@@ -1,13 +1,11 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useRevealV3, useMagnet } from "../lib/v3fx";
 
 const IG = "/case-studies/ignify";
 
-// Truth gates: quotes render in production only after sign-off.
-// All six approved by the founder on their behalf, 2026-08-11.
-const SIGNED = { kevin: true, ayna: true, maya: true, ata: true, kelsey: true, sultan: true };
-
-const PEOPLE: Array<{ k: keyof typeof SIGNED; text: string; name: string; role: string; img?: string }> = [
+// All six quotes approved by the founder on their behalf, 2026-08-11.
+const PEOPLE: Array<{ k: string; text: string; name: string; role: string; img?: string }> = [
   { k: "kevin", text: "Easy to work with, quick to deliver, and the new site looks sharp everywhere. Exactly what we needed.", name: "Kevin Vincent", role: "Midtec Associates · midtec.com", img: "/work/kevin.png" },
   { k: "ayna", text: "The Matchstick found customers we never reached before. turkmen.biz is the first place I send any Turkmen business getting started.", name: "Ayna Pirkuliyeva", role: "Owner, The Matchstick · thematchstick.co", img: "/work/people/ayna.jpg" },
   { k: "maya", text: "The new site captures who we are, and working with Garagol was effortless. They knew our world before we said a word.", name: "Dr. Maya Tuylieva", role: "Music Academy of Kansas City", img: "/work/people/maya.jpg" },
@@ -15,6 +13,43 @@ const PEOPLE: Array<{ k: keyof typeof SIGNED; text: string; name: string; role: 
   { k: "sultan", text: "One working session saved me months. I left with a scope, a stack, and a budget I could act on.", name: "Sultan Amangeldiyev", role: "Owner, Five Eight Bloom · fiveeightbloom.com", img: "/work/people/sultan.jpg" },
   { k: "ata", text: "Thorough and practical. Clear findings, clear fixes, no scare tactics. We closed real gaps fast.", name: "Ata Kakajanow", role: "Cybersecurity client" },
 ];
+
+/** One voice at a time: crossfading testimonial with dot navigation. */
+function QuoteRotator() {
+  const [i, setI] = useState(0);
+  const [paused, setPaused] = useState(false);
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (paused) return;
+    const t = window.setInterval(() => setI((v) => (v + 1) % PEOPLE.length), 7000);
+    return () => window.clearInterval(t);
+  }, [paused]);
+  return (
+    <div className="g3-rotator" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+      {PEOPLE.map((p, k) => (
+        <figure key={p.k} className={"g3-rotator__item" + (k === i ? " is-on" : "")} style={{ margin: 0 }} aria-hidden={k !== i}>
+          <blockquote>"{p.text}"</blockquote>
+          <figcaption className="g3-rotator__by">
+            {p.img ? (
+              <img src={p.img} alt="" width={44} height={44} />
+            ) : (
+              <span className="g3-person__init">{p.name.split(" ").map((w) => w[0]).join("")}</span>
+            )}
+            <div>
+              <span className="g3-rotator__name">{p.name}</span>
+              <span className="g3-rotator__role">{p.role}</span>
+            </div>
+          </figcaption>
+        </figure>
+      ))}
+      <div className="g3-rotator__dots">
+        {PEOPLE.map((p, k) => (
+          <button key={p.k} className={"g3-rotator__dot" + (k === i ? " is-on" : "")} aria-label={"Show quote from " + p.name} onClick={() => setI(k)} />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function Card(props: {
   href?: string; to?: string; media?: string; mediaClass?: string; mediaLabel?: string;
@@ -90,13 +125,13 @@ export default function Work() {
           <Card rv={0} to="/work/ignify" media={`${IG}/owner-dashboard.png`} mediaClass="g3-card__media--top"
             kicker="Client build · iOS & Android · Live" title="IGNIFY apps"
             desc="Teacher, family, and owner apps: scheduling, messaging, AI lesson reports, payments." />
-          <Card rv={60} media="/work/meseleyok-shot.jpg" mediaClass="g3-card__media--phone"
+          <Card rv={60} media="/work/app-meseleyok.jpg" mediaClass="g3-card__media--top"
             kicker="Tehnika Dünýäsi · In build" title="Mesele Ýok"
             desc="A two-sided home-services marketplace: one app for customers, one for specialists." />
-          <Card rv={120} media="/work/biletdayza-shot.jpg" mediaClass="g3-card__media--croptl"
+          <Card rv={120} media="/work/app-biletdayza.jpg" mediaClass="g3-card__media--top"
             kicker="Designed · 2026" title="Bilet Daýza"
             desc="Ticketing for cinemas and events: browse, book, and an offline QR ticket at the gate." />
-          <Card rv={180} media="/work/serviceauto-shot.jpg" mediaClass="g3-card__media--phonemid"
+          <Card rv={180} media="/work/app-serviceauto.jpg" mediaClass="g3-card__media--top"
             kicker="Field service · In build" title="Service Auto"
             desc="Routes, verified visits, and invoicing for lawn-care crews." />
         </div>
@@ -106,10 +141,10 @@ export default function Work() {
       <section className="g3-section g3-section--line" style={{ paddingTop: "clamp(36px,5vh,56px)", paddingBottom: "clamp(36px,5vh,56px)" }}>
         <div className="g3-label g3-section-label" data-rv="0" style={{ marginBottom: 0 }}>Web apps</div>
         <div className="g3-catgrid">
-          <Card rv={0} mediaLabel="Private · Live"
+          <Card rv={0} media="/work/webapp-ignifyadmin.jpg"
             kicker="Client build · IGNIFY Incorporated · Live" title="IGNIFY admin console"
             desc="Staff operations console: roster, tickets, billing oversight, and support tooling." />
-          <Card rv={60} media="/work/meseleyok-operator-shot.jpg" mediaClass="g3-card__media--croptl"
+          <Card rv={60} media="/work/meseleyok-operator-shot.jpg" mediaClass="g3-card__media--croptr"
             kicker="Tehnika Dünýäsi · Designed · 2026" title="Mesele Ýok Operator"
             desc="The marketplace back office: dispatch board, roster, and order flows." />
           <Card rv={120} mediaLabel="Private · Live"
@@ -137,24 +172,10 @@ export default function Work() {
         </div>
       </section>
 
-      {/* ===== IN THEIR WORDS (gated until each person signs off) ===== */}
+      {/* ===== IN THEIR WORDS ===== */}
       <section className="g3-section" style={{ paddingTop: "clamp(36px,5vh,56px)" }}>
-        <div className="g3-label g3-section-label" data-rv="0" style={{ marginBottom: 0 }}>In their words</div>
-        <div className="g3-people">
-          {PEOPLE.filter((p) => SIGNED[p.k] || import.meta.env.DEV).map((p, i) => (
-            <figure className="g3-person" data-rv={(i % 3) * 60} key={p.k} style={{ margin: 0 }}>
-              <blockquote>"{p.text}"</blockquote>
-              <footer>
-                {p.img ? <img src={p.img} alt={p.name} width={40} height={40} /> : <span className="g3-person__init">{p.name.split(" ").map((w) => w[0]).join("")}</span>}
-                <div>
-                  <strong>{p.name}</strong>
-                  <span>{p.role}</span>
-                </div>
-                {!SIGNED[p.k] && <span className="g3-flag">Draft · pending sign-off</span>}
-              </footer>
-            </figure>
-          ))}
-        </div>
+        <div className="g3-label g3-section-label" data-rv="0">In their words</div>
+        <QuoteRotator />
       </section>
 
       {/* ===== CLOSE ===== */}
